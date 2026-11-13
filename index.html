@@ -359,6 +359,26 @@ body.blue #skyblue{opacity:1}
 .lg-P{background:color-mix(in srgb,var(--accent) 80%,#ffffff)}
 .lg-N{background:var(--accent)}
 .chart-card .cap{position:relative;z-index:1;margin:8px 4px 0;font-size:12px;color:var(--mute)}
+
+/* vlastný kalendár: smeny, dovolenka, PN, lekár, iné */
+.pdot{display:inline-block;width:9px;height:9px;border-radius:50%;margin-right:8px;vertical-align:0}
+.t-smena{background:#1f9d55}.t-dov{background:#f59e0b}.t-pn{background:#e0556b}.t-lekar{background:#8b5cf6}.t-ine{background:#6b7280}
+.cell .pds{position:absolute;left:0;right:0;bottom:3px;display:flex;justify-content:center;gap:2px;pointer-events:none}
+.cell .pds i{width:5px;height:5px;border-radius:50%}
+.cell.mine{background:rgba(31,157,85,.26);border-color:rgba(31,157,85,.75)}
+.cell.sick{background:rgba(224,85,107,.13)}
+.cell.vac{background:rgba(245,158,11,.15)}
+.cell.mine.sel{background:#d6f0e0}
+.prow{width:100%;background:none;border-left:0;border-right:0;border-bottom:0;font:inherit;color:inherit;text-align:left;cursor:pointer}
+.prow>span:first-child{flex:1;min-width:0}
+.prow .v{text-align:right;line-height:1.35;color:var(--mute)}
+.prow .v b{color:var(--atext)}
+.psub{display:block;margin:2px 0 0 17px;font-size:13px;color:var(--mute);font-weight:500}
+.tchips{display:flex;flex-wrap:wrap;gap:8px}
+.tchip{padding:9px 15px;border-radius:999px;border:1px solid rgba(11,13,18,.12);background:rgba(255,255,255,.7);font:inherit;font-weight:600;font-size:15px;color:var(--ink);cursor:pointer}
+.tchip.on{color:#ffffff;border-color:transparent}
+.tchip.on[data-t="smena"]{background:#1f9d55}.tchip.on[data-t="dov"]{background:#d98306}.tchip.on[data-t="pn"]{background:#d6425b}.tchip.on[data-t="lekar"]{background:#7a4be6}.tchip.on[data-t="ine"]{background:#5b6472}
+.legend.my{margin-top:2px}
 </style>
 </head>
 <body>
@@ -573,10 +593,15 @@ function nextShiftText(){
   var n = new Date();
   for (var i = 0; i < 8; i++){
     var dd = new Date(n.getFullYear(), n.getMonth(), n.getDate() + i);
+    var mine = plansOnDay(loadPlans(), dd);
+    var lbl0 = i === 0 ? 'Dnes' : (i === 1 ? 'Zajtra' : WD[dd.getDay()] + ' ' + dd.getDate() + '. ' + (dd.getMonth() + 1) + '.');
+    var off = mine.filter(function(p){ return p.t === 'dov' || p.t === 'pn'; })[0];
+    if (off) return lbl0 + ': ' + (off.t === 'pn' ? 'PN' : 'Dovolenka');
+    var own = mine.filter(function(p){ return p.t === 'smena'; })[0];
+    if (own) return lbl0 + ': Idem do práce ' + own.a + ' – ' + own.b;
     var sh = shiftTimes(dd);
     if (sh){
-      var lbl = i === 0 ? 'Dnes' : (i === 1 ? 'Zajtra' : WD[dd.getDay()] + ' ' + dd.getDate() + '. ' + (dd.getMonth() + 1) + '.');
-      return lbl + ': ' + sh.name + ' ' + fmtT(sh.start) + ' – ' + fmtT(sh.end);
+      return lbl0 + ': ' + sh.name + ' ' + fmtT(sh.start) + ' – ' + fmtT(sh.end);
     }
   }
   return 'Zatiaľ bez naplánovaných smien';
@@ -643,7 +668,7 @@ var S = {
   draft: null, rulesBack: 'select', rulesErr: '',
   sheet: false, sheetFresh: false, addErr: '',
   confirmDel: null, busy: false, justPunched: false, actFails: 0, actLock: 0,
-  shiftStart: null, goalH: 8, selDay: null, confirmWipe: false, netSheet: false, chartSel: null, calcG: ''
+  shiftStart: null, goalH: 8, selDay: null, confirmWipe: false, netSheet: false, chartSel: null, calcG: '', planSheet: null
 };
 var timerId = null;
 var TABS = [['home','Dnes','clock'], ['list','Záznamy','list'], ['profile','Profil','user']];
@@ -1104,6 +1129,7 @@ function viewSchedule(){
   var lead = (new Date(y, m, 1).getDay() + 6) % 7;
   var days = new Date(y, m + 1, 0).getDate();
   var cells = '';
+  var allPlans = loadPlans();
   for (var w = 1 - lead; w <= days; w += 7){
     var type = weekType(new Date(y, m, w));
     var vis = [];
@@ -1116,9 +1142,14 @@ function viewSchedule(){
       }
       if (c < 5) vis.push(c);
       var hol = holidayName(dt);
-      var cls = 'cell' + (dt.getTime() === today.getTime() ? ' today' : '') + (dt.getTime() === sel.getTime() ? ' sel' : '') + (hol ? ' hol' : '');
-      html += '<button class="' + cls + '" style="grid-column:' + (c + 1) + '" data-act="day" data-d="' + ymd(dt) + '" aria-label="' + dt.getDate() + '. ' + (m + 1) + '.' + (hol ? ', sviatok' : '') + '">' +
-        '<span class="n">' + dt.getDate() + '</span>' + (hol ? '<i class="hd"></i>' : '') + '</button>';
+      var pls = plansOnDay(allPlans, dt);
+      var tset = {};
+      pls.forEach(function(p){ tset[p.t] = true; });
+      var tcls = tset.smena ? ' mine' : (tset.pn ? ' sick' : (tset.dov ? ' vac' : ''));
+      var pds = ['smena', 'dov', 'pn', 'lekar', 'ine'].filter(function(k){ return tset[k]; }).map(function(k){ return '<i class="t-' + k + '"></i>'; }).join('');
+      var cls = 'cell' + tcls + (dt.getTime() === today.getTime() ? ' today' : '') + (dt.getTime() === sel.getTime() ? ' sel' : '') + (hol ? ' hol' : '');
+      html += '<button class="' + cls + '" style="grid-column:' + (c + 1) + '" data-act="day" data-d="' + ymd(dt) + '" aria-label="' + dt.getDate() + '. ' + (m + 1) + '.' + (hol ? ', sviatok' : '') + (pls.length ? ', ' + pls.length + ' záznamov' : '') + '">' +
+        '<span class="n">' + dt.getDate() + '</span>' + (hol ? '<i class="hd"></i>' : '') + (pds ? '<span class="pds">' + pds + '</span>' : '') + '</button>';
     }
     var blk = '';
     if (type !== 'V' && vis.length){
@@ -1173,11 +1204,15 @@ function viewSchedule(){
     '<div class="glass cal"><div class="cal-h">' + head + '</div><div class="cal-g">' + cells + '</div></div>' +
     '<div class="legend"><span><i class="sw R"></i>Ranná ' + SHIFTS.R.f + '–' + SHIFTS.R.t + '</span><span><i class="sw P"></i>Poobedná ' + SHIFTS.P.f + '–' + SHIFTS.P.t + '</span>' +
     '<span><i class="sw N"></i>Nočná ' + SHIFTS.N.f + '–' + SHIFTS.N.t + '</span><span><i style="background:var(--danger)"></i>Sviatok</span></div>' +
+    '<div class="legend my"><span><i class="pdot t-smena"></i>Idem do práce</span><span><i class="pdot t-dov"></i>Dovolenka</span><span><i class="pdot t-pn"></i>PN</span><span><i class="pdot t-lekar"></i>Lekár</span><span><i class="pdot t-ine"></i>Iné</span></div>' +
     '<div class="dhead"><h2>' + WDL[sel.getDay()] + ' ' + sel.getDate() + '. ' + (sel.getMonth() + 1) + '.</h2>' +
     (hol2 ? '<span class="chip">Sviatok · ' + esc(hol2) + '</span>' : '') + '</div>' +
     '<div class="glass group">' + detail + '</div>' +
+    '<div class="dhead"><h2 style="font-size:19px">Moje záznamy</h2></div>' +
+    '<div class="glass group">' + (plansOnDay(allPlans, sel).length ? plansOnDay(allPlans, sel).map(function(p){ return planRowHTML(p, R, isBr); }).join('') : '<div class="row"><span>Zatiaľ nič</span><span class="v">–</span></div>') + '</div>' +
+    '<button class="btn" data-act="planAdd" style="margin-top:12px">' + icon('plus') + 'Pridať do dňa</button>' +
     '<p class="note">Ukážkový rozvrh. V skutočnej verzii ho dodá zamestnávateľ. Príplatky sú podľa pravidiel profilu ' + esc(prof.name) + '.</p>' +
-    '</main>';
+    '</main>' + (S.planSheet ? planSheetHTML() : '');
 }
 
 function viewRules(){
@@ -1570,6 +1605,78 @@ async function exportPdf(){
   toast('PDF je pripravené.');
 }
 
+/* ---------- vlastný kalendár ---------- */
+function planKey(){ return 'plan:' + S.session.profileId + ':' + S.session.workNo; }
+function loadPlans(){
+  var r = lsGet(planKey());
+  if (!r) return [];
+  try { var a = JSON.parse(r); return Array.isArray(a) ? a : []; } catch (e) { return []; }
+}
+function savePlans(a){ lsSet(planKey(), JSON.stringify(a)); }
+function pdate(str){ var p = String(str).split('-'); return new Date(+p[0], +p[1] - 1, +p[2]); }
+function plansOnDay(all, dt){
+  var k = ymd(dt);
+  return all.filter(function(p){ return p.f <= k && k <= (p.d || p.f); });
+}
+function planRange(p){
+  var a = pdate(p.f), b = pdate(p.d || p.f);
+  var fa = a.getDate() + '. ' + (a.getMonth() + 1) + '.';
+  if (ymd(a) === ymd(b)) return fa;
+  var n = Math.round((b - a) / 86400000) + 1;
+  return fa + ' – ' + b.getDate() + '. ' + (b.getMonth() + 1) + '. (' + n + (n < 5 ? ' dni)' : ' dní)');
+}
+function planTimes(p){
+  var d = pdate(p.f), a = (p.a || '0:0').split(':'), b = (p.b || '0:0').split(':');
+  var s0 = new Date(d.getFullYear(), d.getMonth(), d.getDate(), +a[0], +a[1]);
+  var s1 = new Date(d.getFullYear(), d.getMonth(), d.getDate(), +b[0], +b[1]);
+  if (s1 <= s0) s1.setDate(s1.getDate() + 1);
+  return { s0: s0, s1: s1 };
+}
+function planRowHTML(p, R, isBr){
+  var title, sub = '', right = '';
+  if (p.t === 'smena'){
+    var tt = planTimes(p);
+    var c = calc({ p: tt.s0.toISOString(), o: tt.s1.toISOString() }, R);
+    var plus = tt.s1.toDateString() !== tt.s0.toDateString() ? ' (+1 deň)' : '';
+    title = 'Idem do práce';
+    sub = esc(p.a) + ' – ' + esc(p.b) + plus;
+    right = fmtHM(c.hours) + (isBr ? '<br><b>' + money(c.wage) + ' €</b>' : '');
+  } else if (p.t === 'dov'){ title = 'Dovolenka'; sub = planRange(p); }
+  else if (p.t === 'pn'){ title = 'PN'; sub = planRange(p); }
+  else if (p.t === 'lekar'){ title = 'Lekár' + (p.a ? ' · ' + esc(p.a) : ''); sub = esc(p.n || ''); }
+  else { title = esc(p.n || 'Iné'); sub = p.a ? esc(p.a) + (p.b ? ' – ' + esc(p.b) : '') : ''; }
+  return '<button class="row prow" data-act="planEdit" data-id="' + esc(p.id) + '"><span><i class="pdot t-' + p.t + '"></i>' + title +
+    (sub ? '<small class="psub">' + sub + '</small>' : '') + '</span><span class="v">' + right + '</span></button>';
+}
+function planSheetHTML(){
+  var ps = S.planSheet;
+  var T = [['smena', 'Smena'], ['dov', 'Dovolenka'], ['pn', 'PN'], ['lekar', 'Lekár'], ['ine', 'Iné']];
+  var chips = T.map(function(x){ return '<button class="tchip' + (ps.t === x[0] ? ' on' : '') + '" data-act="planType" data-t="' + x[0] + '">' + x[1] + '</button>'; }).join('');
+  function dF(id, label, val){ return '<label class="field">' + label + '<input type="date" id="' + id + '" value="' + esc(val || '') + '"></label>'; }
+  function tF(id, label, val){ return '<label class="field">' + label + '<input type="time" id="' + id + '" value="' + esc(val || '') + '"></label>'; }
+  function xF(id, label, val){ return '<label class="field">' + label + '<input type="text" id="' + id + '" maxlength="60" value="' + esc(val || '') + '"></label>'; }
+  var hint = function(t){ return '<p class="muted" style="margin:0;font-size:13px">' + t + '</p>'; };
+  var f;
+  if (ps.t === 'smena') f = dF('pl-f', 'Dátum', ps.f) + '<div class="two">' + tF('pl-a', 'Od', ps.a) + tF('pl-b', 'Do', ps.b) + '</div>' + hint('Ak smena končí po polnoci, zadaj čas do ďalšieho dňa, napríklad 22:00 až 06:00.');
+  else if (ps.t === 'dov' || ps.t === 'pn') f = '<div class="two">' + dF('pl-f', 'Od', ps.f) + dF('pl-d', 'Do', ps.d) + '</div>' + hint('Pri jednom dni nechaj „Do" prázdne.');
+  else if (ps.t === 'lekar') f = dF('pl-f', 'Dátum', ps.f) + tF('pl-a', 'Čas (nepovinné)', ps.a) + xF('pl-n', 'Poznámka (nepovinné)', ps.n);
+  else f = xF('pl-n', 'Názov', ps.n) + dF('pl-f', 'Dátum', ps.f) + '<div class="two">' + tF('pl-a', 'Od (nepovinné)', ps.a) + tF('pl-b', 'Do (nepovinné)', ps.b) + '</div>';
+  return '<div class="sheet-back" data-act="planClose"><div class="sheet glass enter" role="dialog" aria-label="Kalendár">' +
+    '<h2>' + (ps.id ? 'Upraviť záznam' : 'Pridať do kalendára') + '</h2>' +
+    '<div class="tchips">' + chips + '</div>' + f +
+    '<button class="btn" data-act="planSave">Uložiť</button>' +
+    (ps.id ? '<button class="x" data-act="planDelete" style="justify-self:start">Zmazať záznam</button>' : '') +
+    '<button class="btn soft" data-act="planClose">Zrušiť</button></div></div>';
+}
+function readPlanForm(){
+  var ps = S.planSheet;
+  if (!ps) return;
+  ['f', 'd', 'a', 'b', 'n'].forEach(function(k){
+    var el = document.getElementById('pl-' + k);
+    if (el) ps[k] = el.value;
+  });
+}
+
 /* ---------- vykresľovanie ---------- */
 var app = document.getElementById('app');
 var nav = document.getElementById('tabs');
@@ -1789,7 +1896,7 @@ document.addEventListener('click', function(e){
   if (!el) return;
   var act = el.getAttribute('data-act');
   // klik na pozadie panela zavrie panel, klik vnútri nie
-  if ((act === 'sheetClose' || act === 'netClose') && el.classList.contains('sheet-back') && e.target !== el) return;
+  if ((act === 'sheetClose' || act === 'netClose' || act === 'planClose') && el.classList.contains('sheet-back') && e.target !== el) return;
   if (act !== 'del') S.confirmDel = null;
   if (act !== 'wipe') S.confirmWipe = false;
   if (act === 'prev' || act === 'next'){ S.chartSel = null; S.chartScroll = null; }
@@ -1853,6 +1960,43 @@ document.addEventListener('click', function(e){
   } else if (act === 'wipe'){
     if (S.confirmWipe){ lsDel(recKey()); S.confirmWipe = false; toast('Záznamy boli zmazané.'); }
     else { S.confirmWipe = true; }
+  } else if (act === 'planAdd'){
+    var sd = S.selDay || new Date();
+    var rsh = shiftTimes(sd);
+    S.planSheet = { id: null, t: 'smena', f: ymd(sd), d: '', a: rsh ? fmtT(rsh.start) : '06:00', b: rsh ? fmtT(rsh.end) : '14:00', n: '' };
+  } else if (act === 'planEdit'){
+    var found = loadPlans().filter(function(p){ return p.id === el.getAttribute('data-id'); })[0];
+    if (found) S.planSheet = { id: found.id, t: found.t, f: found.f, d: found.d === found.f ? '' : (found.d || ''), a: found.a || '', b: found.b || '', n: found.n || '' };
+  } else if (act === 'planType'){
+    readPlanForm();
+    S.planSheet.t = el.getAttribute('data-t');
+    if (S.planSheet.t === 'smena' && (!S.planSheet.a || !S.planSheet.b)){ S.planSheet.a = S.planSheet.a || '06:00'; S.planSheet.b = S.planSheet.b || '14:00'; }
+  } else if (act === 'planClose'){
+    S.planSheet = null;
+  } else if (act === 'planDelete'){
+    var idDel = S.planSheet && S.planSheet.id;
+    if (idDel){ savePlans(loadPlans().filter(function(p){ return p.id !== idDel; })); toast('Záznam bol zmazaný.'); }
+    S.planSheet = null;
+  } else if (act === 'planSave'){
+    readPlanForm();
+    var ps = S.planSheet, tp = ps.t;
+    var range = (tp === 'dov' || tp === 'pn');
+    if (!ps.f){ toast('Vyber dátum.'); return; }
+    if (tp === 'smena' && (!ps.a || !ps.b)){ toast('Zadaj čas od aj do.'); return; }
+    if (range && ps.d && ps.d < ps.f){ toast('Dátum „Do" je pred dátumom „Od".'); return; }
+    if (tp === 'ine' && !String(ps.n).trim()){ toast('Zadaj názov.'); return; }
+    var rec = { id: ps.id || ('p' + Date.now().toString(36) + Math.floor(Math.random() * 1000)), t: tp, f: ps.f,
+                d: range ? (ps.d || ps.f) : ps.f, a: range ? '' : (ps.a || ''), b: (tp === 'smena' || tp === 'ine') ? (ps.b || '') : '',
+                n: (tp === 'lekar' || tp === 'ine') ? String(ps.n || '').trim().slice(0, 60) : '' };
+    var allp = loadPlans(), pos = -1;
+    allp.forEach(function(p, i){ if (p.id === rec.id) pos = i; });
+    if (pos >= 0) allp[pos] = rec; else allp.push(rec);
+    savePlans(allp);
+    S.planSheet = null;
+    var d0 = pdate(rec.f);
+    S.month = new Date(d0.getFullYear(), d0.getMonth(), 1);
+    S.selDay = d0;
+    toast('Uložené.');
   } else if (act === 'schedule'){
     S.view = 'schedule'; S.selDay = new Date(); window.scrollTo(0, 0);
   } else if (act === 'net'){
