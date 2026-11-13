@@ -379,6 +379,149 @@ body.blue #skyblue{opacity:1}
 .tchip.on{color:#ffffff;border-color:transparent}
 .tchip.on[data-t="smena"]{background:#1f9d55}.tchip.on[data-t="dov"]{background:#d98306}.tchip.on[data-t="pn"]{background:#d6425b}.tchip.on[data-t="lekar"]{background:#7a4be6}.tchip.on[data-t="ine"]{background:#5b6472}
 .legend.my{margin-top:2px}
+
+.upd{position:fixed;left:16px;right:16px;bottom:calc(env(safe-area-inset-bottom,0px) + 98px);z-index:80;display:flex;align-items:center;justify-content:space-between;gap:12px;padding:12px 14px;border-radius:18px;background:rgba(11,13,18,.92);color:#ffffff;font-size:15px;box-shadow:0 10px 30px rgba(0,0,0,.25)}
+.upd button{border:0;border-radius:12px;padding:9px 14px;font:inherit;font-weight:700;background:#ffffff;color:#0b0d12;cursor:pointer}
+
+/* úvod: svetlý sklenený štýl, pole na kód po štvoriciach */
+body.bluepre #skyblue{display:block}
+html,body{transition:background-color .7s ease}
+[hidden]{display:none!important}
+.intro.lt{position:relative;color:var(--ink)}
+.intro.lt .gl-b1,.intro.lt .gl-b2{position:fixed;border-radius:50%;filter:blur(46px);pointer-events:none;z-index:-1}
+.intro.lt .gl-b1{width:260px;height:260px;background:rgba(31,85,214,.26);top:6%;left:-90px}
+.intro.lt .gl-b2{width:240px;height:240px;background:rgba(70,190,200,.24);bottom:8%;right:-80px}
+.intro.lt header{display:grid;justify-items:center}
+.gl-ic{width:66px;height:66px;border-radius:23px;display:grid;place-items:center;background:linear-gradient(180deg,rgba(255,255,255,.95),rgba(244,248,255,.62));border:1px solid rgba(255,255,255,.95);box-shadow:0 14px 30px rgba(14,34,80,.15);margin-bottom:16px;color:#093572}
+.intro.lt .app-name{color:var(--ink);font-size:40px}
+.intro.lt .slogan{color:var(--mute);font-size:18px}
+.intro.lt .intro-pick{margin-top:max(7vh,30px);margin-bottom:0;padding:20px 16px 14px;border-radius:28px}
+.intro.lt .pick-lbl{color:var(--mute);text-align:left;margin:0 0 10px 4px;font-size:14px;letter-spacing:0}
+.code-box{display:grid;gap:12px}
+.code3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}
+.cg{width:100%;min-width:0;height:60px;text-align:center;font:600 22px/1 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;letter-spacing:.1em;text-transform:uppercase;color:var(--ink);border-radius:17px;border:1px solid rgba(11,13,18,.1);background:rgba(255,255,255,.9);box-shadow:inset 0 1px 2px rgba(14,34,80,.08);padding:0 0 0 .1em;caret-color:#1f55d6}
+.cg:focus{outline:none;border-color:#1f55d6;box-shadow:0 0 0 4px rgba(31,85,214,.18)}
+.cg:disabled{opacity:.75}
+.code-box.shake{animation:shake .45s ease}
+.code-box.ok .cg{border-color:#2fb36b;background:#eafaf1;color:#0b5a2c;box-shadow:0 0 0 4px rgba(47,179,107,.18)}
+.intro.lt .act-err{color:var(--danger);text-shadow:none;margin-top:10px;min-height:20px}
+.code-links{display:flex;justify-content:space-between;gap:10px;margin-top:4px}
+.lnk{background:none;border:0;padding:8px 4px;font-weight:600;font-size:14px;color:#1f55d6;cursor:pointer}
+.intro-foot{margin:auto 0 0;padding-top:26px;text-align:center;font-size:13px;color:var(--mute)}
+.resume{display:grid;justify-items:center;gap:6px;text-align:center}
+.resume .rs-t{display:grid;gap:2px;margin:6px 0 12px}
+.resume .rs-t b{font-size:19px}
+.resume .rs-t span{color:var(--mute);font-size:14px}
+.help-p{margin:0;font-size:15px;line-height:1.5;color:var(--ink)}
+.qr-ov{position:fixed;inset:0;z-index:90;background:#000000;color:#ffffff}
+.qr-ov video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.qr-frame{position:absolute;left:50%;top:44%;width:min(66vw,300px);aspect-ratio:1;transform:translate(-50%,-50%);border-radius:26px;box-shadow:0 0 0 100vmax rgba(0,0,0,.55);border:3px solid rgba(255,255,255,.92)}
+.qr-msg{position:absolute;left:0;right:0;bottom:calc(env(safe-area-inset-bottom,0px) + 90px);text-align:center;padding:0 24px;font-size:16px}
+.qr-x{position:absolute;top:calc(env(safe-area-inset-top,0px) + 16px);right:16px;border:0;border-radius:14px;padding:10px 16px;font-weight:700;background:rgba(255,255,255,.92);color:#0b0d12}
+
+/* PIN a Face ID */
+.lockv .lock-card{width:100%;margin:auto 0;padding:24px 16px 14px;border-radius:30px;display:grid;justify-items:center;gap:4px}
+.lockv .resume{margin-bottom:2px}
+.pdots{display:flex;gap:16px;margin:8px 0 2px}
+.pdots i{width:15px;height:15px;border-radius:50%;border:2px solid var(--accent);background:transparent;transition:background .12s}
+.pdots i.f{background:var(--accent)}
+.pdots.shake{animation:shake .45s ease}
+.pad{display:grid;grid-template-columns:repeat(3,74px);gap:12px;justify-content:center;margin:6px 0 8px}
+.pk{width:74px;height:74px;border-radius:50%;border:1px solid rgba(255,255,255,.95);background:linear-gradient(180deg,rgba(255,255,255,.96),rgba(240,245,255,.66));box-shadow:0 8px 20px rgba(14,34,80,.12);font-size:28px;font-weight:600;color:var(--ink);display:grid;place-items:center;cursor:pointer;-webkit-tap-highlight-color:transparent;padding:0}
+.pk:active{background:#dce6fb}
+.pk.fn{background:transparent;border-color:transparent;box-shadow:none;color:var(--accent)}
+.pk svg{width:28px;height:28px}
+.lockv .act-err{text-align:center;min-height:22px;margin:2px 0}
+.pin-sub{margin:0;color:var(--mute);font-size:14px;text-align:center;max-width:30ch}
+
+/* výber jazyka */
+.langsw{position:fixed;top:calc(env(safe-area-inset-top,0px) + 10px);right:12px;z-index:30;display:flex;padding:3px;border-radius:999px;background:rgba(255,255,255,.74);-webkit-backdrop-filter:blur(14px) saturate(1.5);backdrop-filter:blur(14px) saturate(1.5);border:1px solid rgba(255,255,255,.9);box-shadow:0 6px 16px rgba(14,34,80,.12)}
+.langsw button{border:0;background:transparent;border-radius:999px;padding:6px 11px;min-width:38px;font-size:13px;font-weight:700;letter-spacing:.04em;color:var(--mute);cursor:pointer}
+.langsw button.on{background:var(--accent);color:var(--on-accent,#ffffff)}
+
+/* úvod v tmavom štýle Aurora */
+.intro.dk{--ink:#f3f5f9;--mute:#9aa1ae;--accent:#7dd3fc;--on-accent:#06070b;--danger:#ff9a93;--ac:#7dd3fc;--ac2:#d4c8ff;--ring:rgba(125,211,252,.28);--o1:rgba(139,92,246,.26);--o2:rgba(34,211,238,.18);--btn:linear-gradient(100deg,#8b5cf6,#22d3ee,#8b5cf6);--bt:#06070b;--bsh:rgba(79,140,250,.34);color:var(--ink)}
+.intro.dk::before{content:"";position:fixed;inset:0;z-index:-1;background:radial-gradient(120% 60% at 50% 28%,#14161c 0%,#000000 66%);pointer-events:none}
+.intro.lt.dk .gl-b1{background:var(--o1)}
+.intro.lt.dk .gl-b2{background:var(--o2)}
+.intro.lt.dk .app-name{color:#f3f5f9}
+.intro.lt.dk .slogan{color:#a6abb7}
+.intro.lt.dk .glass{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.14);box-shadow:0 18px 40px rgba(0,0,0,.5);-webkit-backdrop-filter:blur(18px);backdrop-filter:blur(18px)}
+.intro.lt.dk .cg{background:rgba(255,255,255,.06);border-color:rgba(255,255,255,.16);color:#f3f5f9;box-shadow:none;caret-color:var(--ac)}
+.intro.lt.dk .cg::placeholder{color:#6e7482}
+.intro.lt.dk .cg:focus{border-color:var(--ac);box-shadow:0 0 0 3px var(--ring)}
+.intro.lt.dk .code-box.ok .cg{border-color:#46c785;background:rgba(70,199,133,.12);color:#b7ffd1;box-shadow:0 0 0 3px rgba(70,199,133,.2)}
+.intro.lt.dk .lnk{color:var(--ac)}
+.intro.lt.dk .pdots i{border-color:var(--ac)}
+.intro.lt.dk .pdots i.f{background:var(--ac)}
+.intro.lt.dk .pk{background:rgba(255,255,255,.07);border-color:rgba(255,255,255,.14);box-shadow:none;color:#f3f5f9}
+.intro.lt.dk .pk:active{background:rgba(255,255,255,.18)}
+.intro.lt.dk .pk.fn{background:transparent;border-color:transparent;color:var(--ac)}
+.intro.lt.dk .sheet.glass{background:linear-gradient(180deg,#1b1e26,#12141a);border-color:rgba(255,255,255,.12)}
+.intro.lt.dk .btn.soft{background:rgba(255,255,255,.08);color:#f3f5f9;border-color:rgba(255,255,255,.16);box-shadow:none}
+.intro.lt.dk .sheet-back{background:rgba(0,0,0,.6)}
+.intro.lt.dk .act-err{color:var(--danger)}
+/* animované logo */
+.clk{position:relative;width:76px;height:76px;display:grid;place-items:center;margin-bottom:6px}
+.clk:before{content:"";position:absolute;inset:-6px;border-radius:50%;background:radial-gradient(circle,var(--o1) 0%,transparent 68%);animation:clkpulse 4s ease-in-out infinite}
+.clk svg{position:relative;width:64px;height:64px;overflow:visible}
+.clk .ring{fill:none;stroke:var(--ac);stroke-width:2.6;stroke-linecap:round;stroke-dasharray:100;stroke-dashoffset:100;animation:clkdraw 1.3s cubic-bezier(.3,.7,.2,1) .15s forwards}
+.clk .mark{fill:var(--ac2);opacity:0;animation:clkfade .5s ease 1.1s forwards}
+.clk .hand{stroke-linecap:round;fill:none;transform-origin:32px 32px;opacity:0}
+.clk .mh{stroke:var(--ac);stroke-width:2.6;animation:clkfade .5s ease .9s forwards,clkspin 12s linear 1.4s infinite}
+.clk .hh{stroke:var(--ac2);stroke-width:2.6;animation:clkfade .5s ease .9s forwards,clkspin 144s linear 1.4s infinite}
+.clk .hub{fill:var(--ac);opacity:0;animation:clkfade .4s ease 1s forwards}
+@keyframes clkdraw{to{stroke-dashoffset:0}}
+@keyframes clkfade{to{opacity:1}}
+@keyframes clkspin{to{transform:rotate(360deg)}}
+@keyframes clkpulse{0%,100%{transform:scale(.92);opacity:.55}50%{transform:scale(1.08);opacity:.95}}
+/* animované tlačidlo */
+.cbw{position:relative}
+.resume .cbw,.lockv .cbw{width:100%}
+.cglow{position:absolute;left:8%;right:8%;top:14px;height:100%;border-radius:18px;background:var(--btn);filter:blur(16px);opacity:0;transition:opacity .5s;pointer-events:none}
+.cbtn{position:relative;overflow:hidden;isolation:isolate;display:grid;place-items:center;width:100%;height:56px;border:0;border-radius:17px;background:var(--btn);background-size:220% 100%;color:var(--bt);font:inherit;font-weight:700;font-size:17px;letter-spacing:.01em;cursor:pointer;box-shadow:inset 0 1px 0 rgba(255,255,255,.5),0 10px 24px var(--bsh);transition:transform .16s ease,opacity .45s ease,filter .45s ease,box-shadow .4s ease}
+.cbtn:before{content:"";position:absolute;inset:0;background:linear-gradient(105deg,transparent 28%,rgba(255,255,255,.65) 50%,transparent 72%);transform:translateX(-130%);z-index:1;pointer-events:none}
+.cbtn .lab{position:relative;z-index:2;display:inline-flex;align-items:center;gap:8px;transition:opacity .22s,transform .3s}
+.cbtn .arr{width:18px;height:18px;transition:transform .35s cubic-bezier(.3,.7,.2,1)}
+.cbtn .spin{position:absolute;z-index:2;left:50%;top:50%;width:22px;height:22px;margin:-11px 0 0 -11px;border-radius:50%;border:2.5px solid rgba(6,7,11,.2);border-top-color:currentColor;opacity:0;transform:scale(.6);transition:opacity .2s,transform .25s;animation:cbrot .75s linear infinite}
+.cbtn .chk{position:absolute;z-index:2;left:50%;top:50%;width:28px;height:28px;margin:-14px 0 0 -14px;opacity:0}
+.cbtn .chk path{fill:none;stroke:currentColor;stroke-width:3.2;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:24;stroke-dashoffset:24}
+@keyframes cbrot{to{transform:rotate(360deg) scale(1)}}
+.cbtn:active{transform:scale(.965)}
+.cbtn[data-s="idle"]{opacity:.42;filter:saturate(.5);box-shadow:inset 0 1px 0 rgba(255,255,255,.25),0 4px 12px rgba(0,0,0,.3)}
+.cbtn[data-s="ready"]{animation:cbaur 6s ease-in-out infinite alternate}
+.cbtn[data-s="ready"]:before{animation:cbsheen 3.4s ease-in-out .3s infinite}
+.cbtn[data-s="ready"] .arr{animation:cbnudge 2.2s ease-in-out infinite}
+.cbw[data-s="ready"] .cglow{opacity:.55;animation:cbglow 2.6s ease-in-out infinite}
+.cbtn[data-s="press"]{transform:scale(.965)}
+.cbtn[data-s="press"] .arr{transform:translateX(5px)}
+.cbtn[data-s="loading"]{transform:scale(.985)}
+.cbtn[data-s="loading"] .lab{opacity:0;transform:scale(.92)}
+.cbtn[data-s="loading"] .spin{opacity:1;transform:scale(1)}
+.cbtn[data-s="err"]{background:linear-gradient(180deg,#ff9a93,#d6453a);color:#2a0a08;animation:shake .4s ease}
+.cbtn[data-s="ok"]{background:linear-gradient(180deg,#5fe08f,#1f9d55);color:#04210f;box-shadow:inset 0 1px 0 rgba(255,255,255,.5),0 10px 28px rgba(47,179,107,.45);animation:cbokpop .5s cubic-bezier(.2,1.5,.4,1)}
+.cbtn[data-s="ok"] .lab,.cbtn[data-s="ok"] .spin{opacity:0}
+.cbtn[data-s="ok"] .chk{opacity:1}
+.cbtn[data-s="ok"] .chk path{animation:cbtick .45s ease .12s forwards}
+.cbtn[data-s="ok"]:before{animation:cbsheen .9s ease .1s 1}
+.cbw[data-s="ok"] .cglow{opacity:.5;background:linear-gradient(90deg,#5fe08f,#1f9d55)}
+@keyframes cbsheen{0%{transform:translateX(-130%)}55%,100%{transform:translateX(130%)}}
+@keyframes cbaur{0%{background-position:0% 50%}100%{background-position:100% 50%}}
+@keyframes cbnudge{0%,100%{transform:translateX(0)}50%{transform:translateX(4px)}}
+@keyframes cbglow{0%,100%{opacity:.35;transform:scale(.97)}50%{opacity:.7;transform:scale(1.03)}}
+@keyframes cbtick{to{stroke-dashoffset:0}}
+@keyframes cbokpop{0%{transform:scale(.94)}100%{transform:scale(1)}}
+@media (prefers-reduced-motion:reduce){
+  .cbtn,.cbtn:before,.cbtn .arr,.cglow,.clk:before,.clk .mh,.clk .hh{animation:none!important}
+  .clk .ring{animation:none;stroke-dashoffset:0}
+  .clk .mark,.clk .hand,.clk .hub{animation:none;opacity:1}
+  .cbtn[data-s="ok"] .chk path{animation:none;stroke-dashoffset:0}
+}
+/* výber jazyka na tmavých obrazovkách */
+body.inwelcome .langsw{display:none}
+body.dark .langsw{background:rgba(255,255,255,.08);border-color:rgba(255,255,255,.16);box-shadow:none}
+body.dark .langsw button{color:#9aa1ae}
+body.dark .langsw button.on{background:rgba(255,255,255,.92);color:#0b0c10}
 </style>
 </head>
 <body>
@@ -391,6 +534,9 @@ body.blue #skyblue{opacity:1}
 <script>
 (function(){
 'use strict';
+var APP_VERSION = '2026-11-13g';
+var LANG = 'sk';
+function LOC(){ return LANG === 'en' ? 'en-GB' : 'sk-SK'; }
 
 /* ---------- ikony ---------- */
 var ICONS = {
@@ -533,7 +679,7 @@ var holCache = {};
 function holidaysOf(y){
   if (holCache[y]) return holCache[y];
   var h = {};
-  function add(m, d, n){ h[y + '-' + p2(m) + '-' + p2(d)] = n; }
+  function add(m, d, n){ h[y + '-' + p2(m) + '-' + p2(d)] = tnH(n); }
   add(1,1,'Deň vzniku Slovenskej republiky'); add(1,6,'Zjavenie Pána (Traja králi)');
   add(5,1,'Sviatok práce'); add(5,8,'Deň víťazstva nad fašizmom');
   add(7,5,'Sviatok svätého Cyrila a Metoda'); add(8,29,'Výročie SNP');
@@ -541,8 +687,8 @@ function holidaysOf(y){
   add(11,1,'Sviatok všetkých svätých'); add(11,17,'Deň boja za slobodu a demokraciu');
   add(12,24,'Štedrý deň'); add(12,25,'Prvý sviatok vianočný'); add(12,26,'Druhý sviatok vianočný');
   var e = easter(y);
-  h[ymd(new Date(e.getFullYear(), e.getMonth(), e.getDate() - 2))] = 'Veľký piatok';
-  h[ymd(new Date(e.getFullYear(), e.getMonth(), e.getDate() + 1))] = 'Veľkonočný pondelok';
+  h[ymd(new Date(e.getFullYear(), e.getMonth(), e.getDate() - 2))] = tnH('Veľký piatok');
+  h[ymd(new Date(e.getFullYear(), e.getMonth(), e.getDate() + 1))] = tnH('Veľkonočný pondelok');
   holCache[y] = h;
   return h;
 }
@@ -588,7 +734,7 @@ function shiftFlags(sh, R){
 }
 var WD = ['ne','po','ut','st','št','pi','so'];
 var WDL = ['Nedeľa','Pondelok','Utorok','Streda','Štvrtok','Piatok','Sobota'];
-function money(x){ return Number(x).toFixed(2).replace('.', ','); }
+function money(x){ var t = Number(x).toFixed(2); return LANG === 'en' ? t : t.replace('.', ','); }
 function nextShiftText(){
   var n = new Date();
   for (var i = 0; i < 8; i++){
@@ -634,9 +780,9 @@ function fmtHM(h){
   var m = Math.round(h * 60);
   return Math.floor(m / 60) + ' h ' + p2(m % 60) + ' min';
 }
-function fmtT(d){ return d.toLocaleTimeString('sk-SK', { hour:'2-digit', minute:'2-digit' }); }
-function fmtD(d){ return d.toLocaleDateString('sk-SK', { weekday:'short', day:'numeric', month:'numeric' }); }
-function fmtDFull(d){ return d.toLocaleDateString('sk-SK', { day:'numeric', month:'numeric', year:'numeric' }); }
+function fmtT(d){ return d.toLocaleTimeString(LOC(), { hour:'2-digit', minute:'2-digit' }); }
+function fmtD(d){ return d.toLocaleDateString(LOC(), { weekday:'short', day:'numeric', month:'numeric' }); }
+function fmtDFull(d){ return d.toLocaleDateString(LOC(), { day:'numeric', month:'numeric', year:'numeric' }); }
 function toInput(d){
   return d.getFullYear() + '-' + p2(d.getMonth()+1) + '-' + p2(d.getDate()) + 'T' + p2(d.getHours()) + ':' + p2(d.getMinutes());
 }
@@ -668,7 +814,8 @@ var S = {
   draft: null, rulesBack: 'select', rulesErr: '',
   sheet: false, sheetFresh: false, addErr: '',
   confirmDel: null, busy: false, justPunched: false, actFails: 0, actLock: 0,
-  shiftStart: null, goalH: 8, selDay: null, confirmWipe: false, netSheet: false, chartSel: null, calcG: '', planSheet: null
+  shiftStart: null, goalH: 8, selDay: null, confirmWipe: false, netSheet: false, chartSel: null, calcG: '', planSheet: null, introOther: false,
+  pinBuf: '', pinStep: 'enter', pinFirst: '', pinErr: '', pinFails: 0, pinLocks: 0, pinLockUntil: 0, pinShake: false, hiddenAt: 0, bioOK: false, forgot: false
 };
 var timerId = null;
 var TABS = [['home','Dnes','clock'], ['list','Záznamy','list'], ['profile','Profil','user']];
@@ -810,20 +957,50 @@ function skyMode(m){
 }
 
 /* ---------- pohľady ---------- */
+var ARROW = '<svg class="arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>';
+var CHECK = '<svg class="chk" viewBox="0 0 28 28" aria-hidden="true"><path d="M6 14.5l5.5 5.5L22 9"/></svg>';
+var CLK = '<div class="clk" aria-hidden="true"><svg viewBox="0 0 64 64"><circle class="ring" cx="32" cy="32" r="24" pathLength="100" transform="rotate(-90 32 32)"/><circle class="mark" cx="32" cy="12.5" r="1.8"/><line class="hand hh" x1="32" y1="32" x2="32" y2="21"/><line class="hand mh" x1="32" y1="32" x2="32" y2="15"/><circle class="hub" cx="32" cy="32" r="2.6"/></svg></div>';
+function cbtn(label, attrs, st, bwId, wrapStyle){
+  return '<div class="cbw"' + (bwId ? ' id="' + bwId + '"' : '') + (wrapStyle ? ' style="' + wrapStyle + '"' : '') + ' data-s="' + st + '"><span class="cglow"></span>' +
+    '<button class="cbtn" ' + attrs + ' data-s="' + st + '"><span class="lab">' + label + ARROW + '</span><i class="spin"></i>' + CHECK + '</button></div>';
+}
+function setBtn(st){
+  var bw = document.getElementById('code-bw'), b = document.getElementById('code-btn');
+  if (bw) bw.setAttribute('data-s', st);
+  if (b) b.setAttribute('data-s', st);
+}
 function viewSelect(){
-  return '<main class="intro">' +
-    '<header>' +
-    '<h1 class="app-name">Dochádzka</h1>' +
-    '<p class="slogan">your time, your overview</p>' +
-    '</header>' +
-    '<section class="intro-pick" aria-label="Zadanie kódu">' +
-    '<p class="pick-lbl">Zadaj svoj kód</p>' +
-    '<div class="act-box" id="code-box">' +
-    '<input class="code-in" id="code" type="text" inputmode="text" autocapitalize="characters" autocomplete="off" autocorrect="off" spellcheck="false" maxlength="14" placeholder="XXXX-XXXX-XXXX" aria-label="Kód od zamestnávateľa">' +
-    '<button class="act-btn" id="code-btn" data-act="code">Pokračovať</button></div>' +
-    '<div class="act-err" id="code-err" role="alert" style="margin-top:12px"></div>' +
-    '<p class="code-hint">Kód dostaneš od zamestnávateľa.</p>' +
-    '</section></main>';
+  var prof = (S.session && !S.introOther) ? getProfile(S.session.profileId) : null;
+  var head = '<header>' + CLK +
+    '<h1 class="app-name">Dochádzka</h1><p class="slogan">your time, your overview</p></header>';
+  var pick;
+  if (prof){
+    pick = '<section class="intro-pick glass" aria-label="Pokračovať"><div class="resume">' + logoHTML(prof, 'xl') +
+      '<div class="rs-t"><b>Pokračovať ako č. ' + esc(S.session.workNo) + '</b><span>' + esc(prof.name) + ' · ' + (S.session.type === 'brigadnik' ? 'Brigádnik' : 'Zamestnanec') + '</span></div>' +
+      cbtn('Pokračovať', 'data-act="resume"', 'ready') +
+      '<button class="lnk" data-act="otherCode">Použiť iný kód</button></div></section>';
+  } else {
+    var cg = [0, 1, 2].map(function(i){
+      return '<input class="cg" data-i="' + i + '" type="text" inputmode="text" autocapitalize="characters" autocomplete="off" autocorrect="off" spellcheck="false" maxlength="12" placeholder="XXXX" aria-label="Kód od zamestnávateľa, časť ' + (i + 1) + ' z 3">';
+    }).join('');
+    pick = '<section class="intro-pick glass" aria-label="Zadanie kódu">' +
+      '<p class="pick-lbl">Zadaj svoj kód</p>' + (S.forgot ? '<p class="pin-sub" style="max-width:none;text-align:left;margin:-4px 4px 10px">Po zadaní kódu si nastavíš nový PIN.</p>' : '') +
+      '<div class="code-box" id="code-box"><div class="code3" role="group" aria-label="Kód od zamestnávateľa">' + cg + '</div>' +
+      cbtn('Pokračovať', 'id="code-btn" data-act="code"', 'idle', 'code-bw') + '</div>' +
+      '<div class="act-err" id="code-err" role="alert"></div>' +
+      '<div class="code-links"><button class="lnk" data-act="help">Kde nájdem kód?</button><button class="lnk" data-act="scan">Skenovať QR kód</button></div>' +
+      '</section>';
+  }
+  var help = '<div class="sheet-back" id="help-sheet" data-act="helpClose" hidden><div class="sheet glass enter" role="dialog" aria-label="Kde nájdem kód">' +
+    '<h2>Kde nájdem kód?</h2>' +
+    '<p class="help-p">Kód ti dá tvoj zamestnávateľ, zvyčajne personalistka alebo vedúci. Dostaneš ho e-mailom, SMS-kou alebo na vytlačenom papieri s QR kódom.</p>' +
+    '<p class="help-p">Má 12 znakov (písmená a číslice), napríklad XXXX-XXXX-XXXX. Na veľkosti písmen nezáleží a pomlčky písať netreba. Celý kód môžeš aj vložiť naraz.</p>' +
+    '<p class="help-p"><b>Nemáš ho, alebo nefunguje?</b> Ozvi sa personalistke alebo napíš na podpora@priklad.sk <span class="muted">(ukážkový kontakt)</span>.</p>' +
+    '<button class="btn soft" data-act="helpClose">Zavrieť</button></div></div>';
+  var qr = '<div class="qr-ov" id="qr-ov" hidden><video id="qr-video" playsinline muted></video><div class="qr-frame" aria-hidden="true"></div>' +
+    '<p class="qr-msg" id="qr-msg" role="status"></p><button class="qr-x" data-act="scanClose">Zavrieť</button></div>';
+  return '<main class="intro lt dk"><div class="gl-b1"></div><div class="gl-b2"></div>' + head + pick +
+    '<p class="intro-foot">Údaje ostávajú len v tomto zariadení.</p>' + help + qr + '</main>';
 }
 
 var BAR_W = [3,5,2,4,2,6,3,2,5,3,2,4,6,2,3,5,2,3,4,2,6,3,2,5,3,4,2,3,5,2,4,6,2,3,4,2,5,3,2,4,3];
@@ -863,7 +1040,7 @@ function viewLogin(){
     '</main>';
 }
 
-function monthName(){ return S.month.toLocaleDateString('sk-SK', { month:'long', year:'numeric' }); }
+function monthName(){ return S.month.toLocaleDateString(LOC(), { month:'long', year:'numeric' }); }
 function monthNav(){
   return '<div class="monthnav glass"><button class="ibtn flat" data-act="prev" aria-label="Predchádzajúci mesiac">' + icon('left') + '</button>' +
     '<span class="m">' + esc(monthName()) + '</span>' +
@@ -951,7 +1128,7 @@ function viewMain(){
       '<div class="actions">' +
       '<button class="btn" data-act="rules">' + icon('sliders') + 'Pravidlá a vzhľad</button>' +
       '<button class="btn dark" data-act="logout">' + icon('out') + 'Odhlásiť</button></div>' +
-      importCard() +
+      importCard() + toolsCard() +
       '<p class="note">Orientačný výpočet podľa pravidiel profilu ' + esc(prof.name) + '. Záväzná je evidencia a výplata zamestnávateľa.</p>';
   }
 
@@ -1378,6 +1555,40 @@ function chartTile(){
     icon('right').replace('class="ic"', 'class="ic chev"') + '</button>';
 }
 
+function toolsCard(){
+  return '<h3 class="sec">Záloha a aktualizácia</h3><div class="glass card" style="display:grid;gap:12px">' +
+    '<button class="btn soft" data-act="expRecs">Skopírovať záznamy</button>' +
+    '<button class="btn soft" data-act="reload">Načítať najnovšiu verziu</button>' +
+    '<p class="muted" style="margin:0;font-size:13px">Verzia ' + esc(APP_VERSION) + '. Záznamy sa kopírujú v tvare dátum, od, do, aby sa dali vložiť naspäť cez import.</p></div>';
+}
+function expRecsText(){
+  var out = [];
+  loadRecs().forEach(function(r){
+    if (!r.o) return;
+    var p = new Date(r.p), o = new Date(r.o);
+    out.push({ t: p.getTime(), line: p.getDate() + '.' + (p.getMonth() + 1) + '.' + p.getFullYear() + ' ' + p.getHours() + ':' + p2(p.getMinutes()) + ' ' + o.getHours() + ':' + p2(o.getMinutes()) });
+  });
+  out.sort(function(a, b){ return a.t - b.t; });
+  return out.map(function(x){ return x.line; }).join('\n');
+}
+function reloadFresh(){ location.replace(location.pathname + '?v=' + Date.now()); }
+function showUpdateBar(){
+  if (document.getElementById('upd')) return;
+  var d = document.createElement('div');
+  d.id = 'upd'; d.className = 'upd'; d.setAttribute('role', 'status');
+  d.innerHTML = '<span>Je dostupná nová verzia.</span><button data-act="reload">Obnoviť</button>';
+  document.body.appendChild(d);
+}
+function checkUpdate(){
+  if (location.protocol.indexOf('http') !== 0) return;
+  try {
+    fetch(location.pathname + '?chk=' + Date.now(), { cache: 'no-store' }).then(function(r){ return r.text(); }).then(function(t){
+      var m = t.match(/APP_VERSION\s*=\s*'([^']+)'/);
+      if (m && m[1] !== APP_VERSION) showUpdateBar();
+    }).catch(function(){});
+  } catch (e) {}
+}
+
 function importCard(){
   return '<h3 class="sec">Import záznamov</h3><div class="glass card" style="display:grid;gap:12px">' +
     '<p class="muted" style="margin:0;font-size:14px">Vlož záznamy (dátum, od, do)</p>' +
@@ -1449,7 +1660,7 @@ async function renderReport(prof, rows, tot, isBr, y, m){
   var W = 1240, H = 1754, PAD = 90;
   var F = '-apple-system, "Helvetica Neue", Helvetica, Arial, sans-serif';
   var logo = await loadImg(safeUrl(prof.logo));
-  var title = new Date(y, m, 1).toLocaleDateString('sk-SK', { month: 'long', year: 'numeric' });
+  var title = new Date(y, m, 1).toLocaleDateString(LOC(), { month: 'long', year: 'numeric' });
   var X = { d: PAD, p: 330, o: 520, h: 800, r: W - PAD };
   var cvs = [], idx = 0, first = true, done = false;
   while (!done){
@@ -1470,8 +1681,8 @@ async function renderReport(prof, rows, tot, isBr, y, m){
       c.fillStyle = '#0b0d12'; c.font = '700 58px ' + F;
       c.fillText(prof.name, tx, 150);
       c.fillStyle = '#5d6678'; c.font = '400 30px ' + F;
-      c.fillText('Výkaz dochádzky · ' + title, tx, 196);
-      c.fillText('Pracovné číslo ' + S.session.workNo + ' · ' + (isBr ? 'Brigádnik' : 'Zamestnanec'), tx, 238);
+      c.fillText(pt('Výkaz dochádzky') + ' · ' + title, tx, 196);
+      c.fillText(pt('Pracovné číslo') + ' ' + S.session.workNo + ' · ' + pt(isBr ? 'Brigádnik' : 'Zamestnanec'), tx, 238);
       top = 330;
     } else {
       c.fillStyle = prof.color; c.fillRect(0, 0, W, 14);
@@ -1480,11 +1691,11 @@ async function renderReport(prof, rows, tot, isBr, y, m){
     var cap = first ? 22 : 31;
     // hlavička tabuľky
     c.textAlign = 'left'; c.fillStyle = '#5d6678'; c.font = '600 26px ' + F;
-    c.fillText('Dátum', X.d, top);
-    c.fillText('Príchod', X.p, top);
-    c.fillText('Odchod', X.o, top);
-    c.fillText('Odpracované', X.h, top);
-    if (isBr){ c.textAlign = 'right'; c.fillText('Mzda', X.r, top); }
+    c.fillText(pt('Dátum'), X.d, top);
+    c.fillText(pt('Príchod'), X.p, top);
+    c.fillText(pt('Odchod'), X.o, top);
+    c.fillText(pt('Odpracované'), X.h, top);
+    if (isBr){ c.textAlign = 'right'; c.fillText(pt('Mzda'), X.r, top); }
     c.fillStyle = '#d7dbe6'; c.fillRect(PAD, top + 16, W - 2 * PAD, 2);
     var y0 = top + 26;
     var chunk = rows.slice(idx, idx + cap);
@@ -1505,7 +1716,7 @@ async function renderReport(prof, rows, tot, isBr, y, m){
       var ty = y0 + chunk.length * 56 + 20;
       c.fillStyle = '#0b0d12'; c.fillRect(PAD, ty, W - 2 * PAD, 3);
       c.font = '700 32px ' + F; c.textAlign = 'left';
-      c.fillText('Spolu', X.d, ty + 52);
+      c.fillText(pt('Spolu'), X.d, ty + 52);
       c.fillText(fmtHM(tot.hours), X.h, ty + 52);
       if (isBr){ c.textAlign = 'right'; c.fillText(money(tot.wage) + ' €', X.r, ty + 52); }
       done = true;
@@ -1517,9 +1728,9 @@ async function renderReport(prof, rows, tot, isBr, y, m){
   cvs.forEach(function(cv, i){
     var c = cv.getContext('2d');
     c.fillStyle = '#7b8396'; c.font = '400 22px ' + F; c.textAlign = 'left';
-    c.fillText('Orientačný výpočet. Hodiny sú po odpočítaní prestávok. Záväzná je evidencia zamestnávateľa.', PAD, H - 62);
+    c.fillText(pt('Orientačný výpočet. Hodiny sú po odpočítaní prestávok. Záväzná je evidencia zamestnávateľa.'), PAD, H - 62);
     c.textAlign = 'right';
-    c.fillText('Strana ' + (i + 1) + ' / ' + cvs.length, W - PAD, H - 62);
+    c.fillText(pt('Strana') + ' ' + (i + 1) + ' / ' + cvs.length, W - PAD, H - 62);
     var b64 = cv.toDataURL('image/jpeg', 0.92).split(',')[1];
     var bin = atob(b64), u = new Uint8Array(bin.length);
     for (var k = 0; k < bin.length; k++) u[k] = bin.charCodeAt(k);
@@ -1677,6 +1888,337 @@ function readPlanForm(){
   });
 }
 
+/* ---------- PIN a Face ID ---------- */
+var SHA_K = null, SHA_H = null;
+function shaInit(){
+  var primes = [], n = 2;
+  while (primes.length < 64){
+    var ok = true;
+    for (var i = 0; i < primes.length; i++){ if (n % primes[i] === 0){ ok = false; break; } }
+    if (ok) primes.push(n);
+    n++;
+  }
+  SHA_K = primes.map(function(p){ return Math.floor((Math.pow(p, 1 / 3) % 1) * 4294967296); });
+  SHA_H = primes.slice(0, 8).map(function(p){ return Math.floor((Math.pow(p, 1 / 2) % 1) * 4294967296); });
+}
+function sha256(str){
+  if (!SHA_K) shaInit();
+  var b = [], i;
+  for (i = 0; i < str.length; i++) b.push(str.charCodeAt(i) & 255);
+  var bits = b.length * 8;
+  b.push(0x80);
+  while (b.length % 64 !== 56) b.push(0);
+  for (i = 7; i >= 0; i--) b.push(i >= 4 ? 0 : (bits >>> (i * 8)) & 255);
+  var H = SHA_H.slice(), K = SHA_K, w = new Array(64);
+  function rr(n, x){ return (x >>> n) | (x << (32 - n)); }
+  for (var o = 0; o < b.length; o += 64){
+    for (i = 0; i < 16; i++) w[i] = (b[o + i * 4] << 24) | (b[o + i * 4 + 1] << 16) | (b[o + i * 4 + 2] << 8) | b[o + i * 4 + 3];
+    for (i = 16; i < 64; i++){
+      var s0 = rr(7, w[i - 15]) ^ rr(18, w[i - 15]) ^ (w[i - 15] >>> 3);
+      var s1 = rr(17, w[i - 2]) ^ rr(19, w[i - 2]) ^ (w[i - 2] >>> 10);
+      w[i] = (w[i - 16] + s0 + w[i - 7] + s1) | 0;
+    }
+    var a = H[0], bb = H[1], c = H[2], d = H[3], e = H[4], f = H[5], g = H[6], h = H[7];
+    for (i = 0; i < 64; i++){
+      var S1 = rr(6, e) ^ rr(11, e) ^ rr(25, e);
+      var ch = (e & f) ^ (~e & g);
+      var t1 = (h + S1 + ch + K[i] + w[i]) | 0;
+      var S0 = rr(2, a) ^ rr(13, a) ^ rr(22, a);
+      var mj = (a & bb) ^ (a & c) ^ (bb & c);
+      var t2 = (S0 + mj) | 0;
+      h = g; g = f; f = e; e = (d + t1) | 0; d = c; c = bb; bb = a; a = (t1 + t2) | 0;
+    }
+    H[0] = (H[0] + a) | 0; H[1] = (H[1] + bb) | 0; H[2] = (H[2] + c) | 0; H[3] = (H[3] + d) | 0;
+    H[4] = (H[4] + e) | 0; H[5] = (H[5] + f) | 0; H[6] = (H[6] + g) | 0; H[7] = (H[7] + h) | 0;
+  }
+  return H.map(function(x){ return ('00000000' + (x >>> 0).toString(16)).slice(-8); }).join('');
+}
+function randHex(n){
+  var u = new Uint8Array(n);
+  if (window.crypto && crypto.getRandomValues) crypto.getRandomValues(u);
+  else for (var i = 0; i < n; i++) u[i] = Math.floor(Math.random() * 256);
+  return Array.prototype.map.call(u, function(x){ return ('0' + x.toString(16)).slice(-2); }).join('');
+}
+function pinHash(salt, pin){
+  var h = salt + ':' + pin;
+  for (var i = 0; i < 1000; i++) h = sha256(h + salt + pin);
+  return h;
+}
+function pinKey(){ return 'pin:' + S.session.profileId + ':' + S.session.workNo; }
+function loadPin(){
+  if (!S.session) return null;
+  var r = lsGet(pinKey());
+  if (!r) return null;
+  try { var o = JSON.parse(r); return (o && o.s && o.h) ? o : null; } catch (e) { return null; }
+}
+function savePin(o){ lsSet(pinKey(), JSON.stringify(o)); }
+function hasPin(){ return !!(S.session && loadPin()); }
+function b64u(buf){
+  var s2 = '';
+  new Uint8Array(buf).forEach(function(x){ s2 += String.fromCharCode(x); });
+  return btoa(s2).replace(/\+/g, '-').replace(/\//g, '_').replace(/=+$/, '');
+}
+function unb64u(str){
+  str = str.replace(/-/g, '+').replace(/_/g, '/');
+  while (str.length % 4) str += '=';
+  var bin = atob(str), u = new Uint8Array(bin.length);
+  for (var i = 0; i < bin.length; i++) u[i] = bin.charCodeAt(i);
+  return u.buffer;
+}
+function bioAvailable(){
+  try {
+    if (window.PublicKeyCredential && PublicKeyCredential.isUserVerifyingPlatformAuthenticatorAvailable && navigator.credentials)
+      return PublicKeyCredential.isUserVerifyingPlatformAuthenticatorAvailable().catch(function(){ return false; });
+  } catch (e) {}
+  return Promise.resolve(false);
+}
+function bioRegister(label){
+  return navigator.credentials.create({ publicKey: {
+    challenge: crypto.getRandomValues(new Uint8Array(32)),
+    rp: { name: 'Dochádzka' },
+    user: { id: crypto.getRandomValues(new Uint8Array(16)), name: label, displayName: label },
+    pubKeyCredParams: [{ type: 'public-key', alg: -7 }, { type: 'public-key', alg: -257 }],
+    authenticatorSelection: { authenticatorAttachment: 'platform', userVerification: 'required', residentKey: 'discouraged' },
+    timeout: 60000, attestation: 'none'
+  } }).then(function(c){ return b64u(c.rawId); });
+}
+function bioCheck(credId){
+  return navigator.credentials.get({ publicKey: {
+    challenge: crypto.getRandomValues(new Uint8Array(32)),
+    allowCredentials: [{ type: 'public-key', id: unb64u(credId), transports: ['internal'] }],
+    userVerification: 'required', timeout: 60000
+  } });
+}
+var ICON_FACE = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 8V6a2 2 0 0 1 2-2h2M16 4h2a2 2 0 0 1 2 2v2M20 16v2a2 2 0 0 1-2 2h-2M8 20H6a2 2 0 0 1-2-2v-2"/><path d="M9 10v1.5M15 10v1.5M12 10v3.5h-1M9.5 16c1.3 1 3.7 1 5 0"/></svg>';
+var ICON_BKSP = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 5H9l-6 7 6 7h12a1 1 0 0 0 1-1V6a1 1 0 0 0-1-1z"/><path d="M13 9.5l5 5M18 9.5l-5 5"/></svg>';
+function padHTML(showBio){
+  var h = '<div class="pad" role="group" aria-label="Číselník">';
+  for (var k = 1; k <= 9; k++) h += '<button class="pk" data-act="pk" data-k="' + k + '" aria-label="' + k + '">' + k + '</button>';
+  h += (showBio ? '<button class="pk fn" data-act="bio" aria-label="Odomknúť Face ID alebo odtlačkom">' + ICON_FACE + '</button>' : '<span></span>');
+  h += '<button class="pk" data-act="pk" data-k="0" aria-label="0">0</button>';
+  h += '<button class="pk fn" data-act="pkdel" aria-label="Zmazať číslicu">' + ICON_BKSP + '</button></div>';
+  return h;
+}
+function dotsHTML(){
+  var h = '<div class="pdots' + (S.pinShake ? ' shake' : '') + '" role="img" aria-label="Zadané číslice: ' + S.pinBuf.length + ' zo 4">';
+  for (var i = 0; i < 4; i++) h += '<i' + (i < S.pinBuf.length ? ' class="f"' : '') + '></i>';
+  S.pinShake = false;
+  return h + '</div>';
+}
+function viewLock(){
+  var prof = getProfile(S.session.profileId);
+  var rec = loadPin();
+  return '<main class="intro lt dk lockv"><div class="gl-b1"></div><div class="gl-b2"></div>' +
+    '<section class="lock-card glass"><div class="resume">' + logoHTML(prof, 'xl') +
+    '<div class="rs-t"><b>Zadaj PIN</b><span>č. ' + esc(S.session.workNo) + ' · ' + esc(prof.name) + '</span></div></div>' +
+    dotsHTML() + '<div class="act-err" role="alert">' + esc(S.pinErr) + '</div>' +
+    padHTML(!!(rec && rec.b)) + '<button class="lnk" data-act="forgotPin">Zabudol som PIN</button></section>' +
+    '<p class="intro-foot">Údaje ostávajú len v tomto zariadení.</p></main>';
+}
+function viewPinSetup(){
+  var prof = getProfile(S.session.profileId);
+  var step = S.pinStep, title, sub, body;
+  if (step === 'bio'){
+    title = 'Povoliť Face ID?';
+    sub = 'Namiesto PIN-u sa budeš môcť odomykať tvárou alebo odtlačkom prsta. PIN ti ostane ako záloha.';
+    body = '<div class="act-err" role="alert">' + esc(S.pinErr) + '</div>' +
+      cbtn('Povoliť Face ID', 'data-act="bioOn"', 'ready', '', 'margin-top:6px') + '<button class="lnk" data-act="bioSkip">Teraz nie</button>';
+  } else {
+    title = step === 'confirm' ? 'Zopakuj PIN' : 'Nastav si PIN';
+    sub = step === 'confirm' ? 'Zadaj ten istý PIN ešte raz.' : 'Zvoľ si 4 číslice. Budeš ho zadávať pri otvorení aplikácie.';
+    body = dotsHTML() + '<div class="act-err" role="alert">' + esc(S.pinErr) + '</div>' + padHTML(false);
+  }
+  return '<main class="intro lt dk lockv"><div class="gl-b1"></div><div class="gl-b2"></div>' +
+    '<section class="lock-card glass"><div class="resume">' + logoHTML(prof, 'xl') +
+    '<div class="rs-t"><b>' + title + '</b><span>č. ' + esc(S.session.workNo) + ' · ' + esc(prof.name) + '</span></div></div>' +
+    '<p class="pin-sub">' + sub + '</p>' + body + '</section>' +
+    '<p class="intro-foot">Ukážka: PIN je uložený len v tomto zariadení.</p></main>';
+}
+function pinUnlock(){
+  S.pinBuf = ''; S.pinFirst = ''; S.pinFails = 0; S.pinLocks = 0; S.pinErr = ''; S.pinStep = 'enter';
+  S.month = new Date(); S.view = 'main';
+}
+function pinLockTick(){
+  if (S.view !== 'lock') return;
+  var left = Math.ceil((S.pinLockUntil - Date.now()) / 1000);
+  if (left > 0){ S.pinErr = 'Príliš veľa pokusov. Skús znova o ' + left + ' s.'; render(); setTimeout(pinLockTick, 1000); }
+  else { S.pinErr = ''; render(); }
+}
+function pinComplete(){
+  var pin = S.pinBuf;
+  if (S.view === 'lock'){
+    var rec = loadPin();
+    if (rec && pinHash(rec.s, pin) === rec.h){ pinUnlock(); return; }
+    S.pinBuf = ''; S.pinShake = true; S.pinFails++;
+    if (S.pinFails >= 5){
+      S.pinFails = 0; S.pinLocks++;
+      if (S.pinLocks >= 2){
+        lsDel('session'); S.session = null; S.pinLocks = 0; S.pinErr = ''; S.view = 'select';
+        toast('Príliš veľa pokusov. Zadaj kód znova.');
+        return;
+      }
+      S.pinLockUntil = Date.now() + 30000;
+      pinLockTick();
+    } else {
+      var left = 5 - S.pinFails;
+      S.pinErr = 'Nesprávny PIN. ' + (left === 1 ? 'Zostáva 1 pokus.' : 'Zostávajú ' + left + ' pokusy.');
+    }
+    return;
+  }
+  if (S.pinStep === 'enter'){ S.pinFirst = pin; S.pinBuf = ''; S.pinStep = 'confirm'; S.pinErr = ''; }
+  else if (S.pinStep === 'confirm'){
+    if (pin === S.pinFirst){
+      var salt = randHex(16);
+      savePin({ s: salt, h: pinHash(salt, pin), b: null });
+      S.pinBuf = ''; S.pinFirst = ''; S.pinErr = '';
+      if (S.bioOK) S.pinStep = 'bio'; else pinUnlock();
+    } else {
+      S.pinBuf = ''; S.pinFirst = ''; S.pinStep = 'enter'; S.pinShake = true; S.pinErr = 'PIN sa nezhoduje. Skús znova.';
+    }
+  }
+}
+
+/* ---------- jazyk SK / EN ---------- */
+var EN = {"(ukážkový kontakt)": "(sample contact)", "Aj cez víkend": "Weekends too", "Ak smena končí po polnoci, zadaj čas do ďalšieho dňa, napríklad 22:00 až 06:00.": "If the shift ends after midnight, enter the end time on the next day, for example 22:00 to 06:00.", "Appka": "App", "Bez príplatkov": "No surcharges", "bez príplatku": "no surcharge", "Brigádnik": "Temp worker", "brigádnik": "temp worker", "Brigádnik vidí odpracované hodiny a mzdu, zamestnanec hodiny voči mesačnému fondu. Prihlásenie sa uloží, nabudúce sa otvorí rovno tvoj účet.": "A temp worker sees hours worked and pay; an employee sees hours against the monthly quota. Your login is saved, so next time your account opens right away.", "Daň (19 %)": "Tax (19 %)", "Daň": "Tax", "deň": "day", "Deň smeny určuje príchod": "Shift day is set by arrival", "Dnes": "Today", "Zajtra": "Tomorrow", "Do": "To", "Do (hodina)": "To (hour)", "Do (nepovinné)": "To (optional)", "Dochádzka": "Attendance", "Dovolenka": "Vacation", "Dátum": "Date", "Dĺžka (min, 0 = žiadna)": "Length (min, 0 = none)", "Farba firmy": "Company colour", "Firma": "Company", "Fond hodín": "Hours quota", "Graf hodín": "Hours chart", "Graf odpracovaných hodín": "Worked hours chart", "Graf odpracovaných hodín po dňoch": "Chart of worked hours by day", "hod.": "hrs", "Hodinová sadzba (€)": "Hourly rate (€)", "Hodiny": "Hours", "Hodnoty prepíš podľa zmluvy a výplatnej pásky. Predvolené sú len orientačné.": "Edit the values to match your contract and payslip. The defaults are only a guide.", "Hrubá mzda": "Gross pay", "Hrubá mzda (odhad z hodín)": "Gross pay (estimated from hours)", "Hrubá mzda (€)": "Gross pay (€)", "Idem do práce": "Going to work", "Import záznamov": "Import records", "Importovať záznamy": "Import records", "Invalidné poistenie (3 %)": "Disability insurance (3 %)", "Iné": "Other", "Kalendár": "Calendar", "Kde nájdem kód": "Where do I find my code", "Kde nájdem kód?": "Where do I find my code?", "Kedy a koľko si pracoval": "When and how much you worked", "Kód má 12 znakov. Dopíš zvyšok.": "The code has 12 characters. Enter the rest.", "Kód od zamestnávateľa": "Code from your employer", "Kód ti dá tvoj zamestnávateľ, zvyčajne personalistka alebo vedúci. Dostaneš ho e-mailom, SMS-kou alebo na vytlačenom papieri s QR kódom.": "Your employer gives you the code, usually HR or your manager. You get it by e-mail, SMS or on a printed sheet with a QR code.", "Kód prijatý ✓": "Code accepted ✓", "Lekár": "Doctor", "Logo nahraj len so súhlasom firmy. Bez neho ostane farba a značka.": "Upload the logo only with the company's permission. Without it, the colour and badge are used.", "Mimo práce": "Off duty", "V práci": "At work", "Moje záznamy": "My entries", "Mzda": "Pay", "Má 12 znakov (písmená a číslice), napríklad XXXX-XXXX-XXXX. Na veľkosti písmen nezáleží a pomlčky písať netreba. Celý kód môžeš aj vložiť naraz.": "It has 12 characters (letters and digits), for example XXXX-XXXX-XXXX. Upper or lower case does not matter and you do not need to type the dashes. You can also paste the whole code at once.", "Na štvrťhodinu nadol": "Down to the quarter hour", "Nadčas": "Overtime", "Nadčas po": "Overtime after", "Namiesto PIN-u sa budeš môcť odomykať tvárou alebo odtlačkom prsta. PIN ti ostane ako záloha.": "Instead of the PIN you will be able to unlock with your face or fingerprint. The PIN stays as a backup.", "napr. 1200": "e.g. 1200", "napr. 82,5": "e.g. 82.5", "Napíš hrubú mzdu a hneď uvidíš, koľko to je v čistom (počíta sa ako brigádnik).": "Type a gross amount and see right away what it is net (calculated as a temp worker).", "Napíš hrubú mzdu a hneď uvidíš, koľko to je v čistom (počíta sa ako zamestnanec).": "Type a gross amount and see right away what it is net (calculated as an employee).", "Nasledujúci mesiac": "Next month", "Predchádzajúci mesiac": "Previous month", "Nastav si PIN": "Set your PIN", "Navigácia": "Navigation", "Načítať najnovšiu verziu": "Load the latest version", "Nemocenské poistenie (1,4 %)": "Sickness insurance (1.4 %)", "Nemáš ho, alebo nefunguje?": "Don't have it, or it doesn't work?", "Nie": "No", "Nie, podľa hodiny": "No, by the hour", "Noc": "Night", "Nočná": "Night", "Ranná": "Morning", "Poobedná": "Afternoon", "Názov": "Name", "Názov firmy": "Company name", "Obnoviť": "Refresh", "Obnoviť predvolené hodnoty": "Restore defaults", "Od": "From", "Od (hodina)": "From (hour)", "Od (nepovinné)": "From (optional)", "Od – do": "From – to", "Príchod": "Clock in", "Odchod": "Clock out", "Odhad mzdy": "Estimated pay", "Odhlásiť": "Log out", "Odpracované": "Worked", "Odstrániť logo": "Remove logo", "Odvody": "Contributions", "Odvody spolu": "Total contributions", "Odvody zamestnanca sú 14,4 % (sociálne 9,4 % a zdravotné 5 %), daň je 19 % po odpočítaní nezdaniteľnej časti 497,23 €. Daňový bonus na deti sa nezapočítava. Orientačný výpočet, záväzná je výplatná páska.": "Employee contributions are 14.4 % (social 9.4 % and health 5 %); tax is 19 % after deducting the tax-free allowance of €497.23. The child tax bonus is not included. This is an estimate; the payslip is binding.", "Prvých 200 € mesačne sa neodvádza. Odvody sú 7 % (3 % invalidné a 4 % starobné), daň je 19 % po odpočítaní nezdaniteľnej časti 497,23 €. Orientačný výpočet, záväzná je výplatná páska.": "The first €200 per month is exempt from contributions. Contributions are 7 % (3 % disability and 4 % old-age); tax is 19 % after deducting the tax-free allowance of €497.23. This is an estimate; the payslip is binding.", "Ozvi sa personalistke alebo napíš na podpora@priklad.sk": "Contact HR or write to podpora@priklad.sk", "PDF je pripravené.": "The PDF is ready.", "PDF sa nepodarilo uložiť.": "The PDF could not be saved.", "Pripravujem PDF…": "Preparing the PDF…", "Uloženie súboru nie je v tomto zobrazení dostupné.": "Saving files is not available in this view.", "PIN sa nezhoduje. Skús znova.": "The PINs do not match. Try again.", "Platený čas": "Paid time", "Platí od dĺžky smeny (min)": "Applies from shift length (min)", "PN": "Sick leave", "Po zadaní kódu si nastavíš nový PIN.": "After entering the code you will set a new PIN.", "Poistenie v nezamestnanosti (1 %)": "Unemployment insurance (1 %)", "Pokračovať": "Continue", "Posúvaj do strán. Os X: dni v mesiaci, pod dňom sú odpracované hodiny. Os Y: hodina dňa.": "Scroll sideways. X axis: days of the month; worked hours are shown under each day. Y axis: hour of the day.", "Potvrď zmazanie": "Confirm deletion", "Potvrď zmazanie všetkých záznamov": "Confirm deleting all records", "Povoliť Face ID": "Enable Face ID", "Povoliť Face ID?": "Enable Face ID?", "Poznámka (nepovinné)": "Note (optional)", "Pracovné číslo": "Work number", "Pravidlá a vzhľad": "Rules and appearance", "Prepočet hrubej na čistú": "Gross to net calculator", "Prestávka": "Break", "Prestávka 1": "Break 1", "Prestávka 2": "Break 2", "Pri jednom dni nechaj „Do\" prázdne.": "For a single day, leave \"To\" empty.", "Pridať": "Add", "Pridať do dňa": "Add to this day", "Pridať do kalendára": "Add to calendar", "Pridať záznam": "Add record", "Priemer na smenu": "Average per shift", "Prihlásenie": "Log in", "Prihlásiť sa": "Log in", "Profil": "Profile", "Príplatky v tento deň": "Surcharges for this day", "Príplatok (%)": "Surcharge (%)", "Príplatok (€ za hodinu)": "Surcharge (€ per hour)", "Príplatok za nedeľu (€/h)": "Sunday surcharge (€/h)", "Príplatok za sobotu (€/h)": "Saturday surcharge (€/h)", "Páska": "Payslip", "Rozdiel": "Difference", "Rozdiel voči fondu": "Difference vs. quota", "Rozpis z hrubej do čistej mzdy": "Gross to net breakdown", "Rozvrh smeny": "Shift schedule", "Skenovanie sa nepodarilo načítať. Zadaj kód ručne.": "Scanning could not be loaded. Enter the code manually.", "Skenovať QR kód": "Scan QR code", "Skontroluj zadané hodnoty.": "Check the values you entered.", "Skopírovať záznamy": "Copy records", "Smena": "Shift", "Smeny": "Shifts", "Späť": "Back", "Spôsob": "Method", "Starobné poistenie (4 %)": "Old-age insurance (4 %)", "Sviatok": "Public holiday", "Sviatok: navyše (€ za hodinu)": "Holiday: extra (€ per hour)", "Sviatok: príplatok (% zo sadzby a víkendu)": "Holiday: surcharge (% of rate and weekend)", "Teraz nie": "Not now", "Text sa nepodarilo prečítať ako JSON.": "The text could not be read as JSON.", "Typ": "Type", "Typ pracovného pomeru": "Employment type", "Ukážka: PIN je uložený len v tomto zariadení.": "Demo: the PIN is stored only on this device.", "Uložené.": "Saved.", "Uložiť": "Save", "Uložiť a porovnať": "Save and compare", "Upraviť záznam": "Edit record", "V čistom": "Net pay", "V čistom (odhad)": "Net pay (estimate)", "V čistom, appka": "Net, app", "V čistom, páska": "Net, payslip", "Vlož záznamy (dátum, od, do)": "Paste records (date, from, to)", "Voľno": "Day off", "Vybrať logo": "Choose logo", "Vzhľad": "Appearance", "Víkend a sviatky": "Weekends and holidays", "Výkaz do PDF": "Export PDF report", "Výplatná páska": "Payslip", "Z hrubej do čistej": "From gross to net", "Zabudol som PIN": "I forgot my PIN", "Zadaj názov.": "Enter a name.", "Zadaj názov firmy.": "Enter a company name.", "Zadaj PIN": "Enter PIN", "Zadaj pracovné číslo.": "Enter your work number.", "Zadaj sumu v eurách.": "Enter an amount in euros.", "Zadaj svoj kód": "Enter your code", "Zadaj ten istý PIN ešte raz.": "Enter the same PIN once more.", "Zadanie kódu": "Code entry", "Zamestnanec": "Employee", "Zaokrúhľovanie príchodu": "Rounding of arrival time", "Zatiaľ nič": "Nothing yet", "Zavrieť": "Close", "Začína po (hodinách od príchodu)": "Starts after (hours from arrival)", "Začína po (hodinách)": "Starts after (hours)", "Zdravotné poistenie (5 %)": "Health insurance (5 %)", "Zmazať": "Delete", "Zmazať profil": "Delete profile", "Zmazať všetky záznamy tohto účtu": "Delete all records of this account", "Zmazať záznam": "Delete record", "Zmazať číslicu": "Delete digit", "Značka (1–2 znaky)": "Badge (1–2 characters)", "Zopakuj PIN": "Repeat PIN", "Zrušiť": "Cancel", "Zvoľ si 4 číslice. Budeš ho zadávať pri otvorení aplikácie.": "Choose 4 digits. You will enter it when you open the app.", "Základ dane": "Tax base", "Záloha a aktualizácia": "Backup and update", "Záznamy": "Records", "Záznamy sú v poli vyššie, skopíruj ich ručne.": "The records are in the field above; copy them manually.", "Záznamy sú skopírované.": "Records copied.", "Záznam bol zmazaný.": "Record deleted.", "Záznamy boli zmazané.": "Records deleted.", "Zatiaľ nemáš dokončené záznamy.": "You have no completed records yet.", "Za tento mesiac nie sú dokončené záznamy.": "There are no completed records for this month.", "Áno": "Yes", "Údaje ostávajú len v tomto zariadení.": "Your data stays only on this device.", "Čas (nepovinné)": "Time (optional)", "Čistá mzda z pásky (€), nepovinné": "Net pay from the payslip (€), optional", "Číselník": "Keypad", "Čísla sa líšia. Skontroluj záznamy, prestávky a príplatky.": "The figures differ. Check the records, breaks and surcharges.", "Sedí v rámci tolerancie (15 minút, 1 €).": "Within tolerance (15 minutes, €1).", "Ťukni na stĺpec a uvidíš detail dňa. Smena cez polnoc sa zobrazí na oboch dňoch.": "Tap a bar to see the details of that day. A shift past midnight is shown on both days.", "Žiadne": "None", "Po": "Mo", "Ut": "Tu", "St": "We", "Št": "Th", "Pi": "Fr", "So": "Sa", "Ne": "Su", "Víta vás": "Welcome to", "Zatiaľ bez naplánovaných smien": "No scheduled shifts yet", "V tomto mesiaci zatiaľ nie sú žiadne záznamy.": "There are no records this month yet.", "V tomto mesiaci zatiaľ nie sú záznamy": "No records this month yet", "Odchod musí byť neskôr než príchod.": "Clock-out must be later than clock-in.", "Vyplň príchod aj odchod.": "Fill in both clock-in and clock-out.", "Vyber dátum.": "Choose a date.", "Zadaj čas od aj do.": "Enter both a start and an end time.", "Dátum „Do\" je pred dátumom „Od\".": "The \"To\" date is before the \"From\" date.", "Je dostupná nová verzia.": "A new version is available.", "Spúšťam fotoaparát…": "Starting the camera…", "Namier fotoaparát na QR kód.": "Point the camera at a QR code.", "Fotoaparát nie je v tomto prehliadači dostupný. Zadaj kód ručne.": "The camera is not available in this browser. Enter the code manually.", "Prístup k fotoaparátu nebol povolený. Zadaj kód ručne.": "Camera access was not allowed. Enter the code manually.", "V tomto QR kóde som nenašiel kód. Skús iný.": "I couldn't find a code in this QR code. Try another.", "Face ID sa nepodarilo. Zadaj PIN.": "Face ID failed. Enter your PIN.", "Face ID sa nepodarilo zapnúť. Skús to neskôr alebo pokračuj s PIN-om.": "Face ID could not be enabled. Try later or continue with the PIN.", "Príliš veľa pokusov. Zadaj kód znova.": "Too many attempts. Enter the code again.", "Odomknúť Face ID alebo odtlačkom": "Unlock with Face ID or fingerprint", "Nová firma": "New company", "Nový profil": "New profile", "Spolu": "Total", "Strana": "Page", "Odpracované dni": "Days worked", "Najdlhšia": "Longest", "Deň vzniku Slovenskej republiky": "Day of the Establishment of the Slovak Republic", "Zjavenie Pána (Traja králi)": "Epiphany (Three Kings)", "Sviatok práce": "Labour Day", "Deň víťazstva nad fašizmom": "Victory over Fascism Day", "Sviatok svätého Cyrila a Metoda": "Saints Cyril and Methodius Day", "Výročie SNP": "Slovak National Uprising Anniversary", "Deň Ústavy Slovenskej republiky": "Constitution Day of the Slovak Republic", "Sedembolestná Panna Mária": "Our Lady of Sorrows", "Sviatok všetkých svätých": "All Saints' Day", "Deň boja za slobodu a demokraciu": "Struggle for Freedom and Democracy Day", "Štedrý deň": "Christmas Eve", "Prvý sviatok vianočný": "Christmas Day", "Druhý sviatok vianočný": "Boxing Day", "Veľký piatok": "Good Friday", "Veľkonočný pondelok": "Easter Monday"};
+var PDF_EN = {"Výkaz dochádzky": "Attendance report", "Pracovné číslo": "Work number", "Brigádnik": "Temp worker", "Zamestnanec": "Employee", "Dátum": "Date", "Príchod": "In", "Odchod": "Out", "Odpracované": "Worked", "Mzda": "Pay", "Spolu": "Total", "Orientačný výpočet. Hodiny sú po odpočítaní prestávok. Záväzná je evidencia zamestnávateľa.": "Estimate. Hours are after breaks are deducted. The employer's records are binding.", "Strana": "Page"};
+var SUBS = [[/\(\+1 deň\)/g, '(+1 day)'], [/\((\d+) dni\)/g, '($1 days)'], [/\((\d+) dní\)/g, '($1 days)']];
+var EN_RX = [
+  [/^(\d+)\. (\d+)\., (\d+) záznamov$/, function(m){ return m[1] + '. ' + m[2] + '., ' + m[3] + (m[3] === '1' ? ' entry' : ' entries'); }],
+  [/^(.+), sviatok$/, function(m){ return m[1] + ', public holiday'; }],
+  [/^Importovaných (\d+) záznamov(?:, neprečítaných (\d+))?\.$/, function(m){ return 'Imported ' + m[1] + ' records' + (m[2] ? ', ' + m[2] + ' unreadable' : '') + '.'; }],
+  [/^Nenašiel som žiadne záznamy\.(?: Neprečítané riadky: (\d+)\.)?$/, function(m){ return 'I found no records.' + (m[1] ? ' Unreadable lines: ' + m[1] + '.' : ''); }],
+  [/^(Neplatný kód|Nesprávny PIN)\. Zostáva 1 pokus\.$/, function(m){ return (m[1] === 'Neplatný kód' ? 'Invalid code' : 'Wrong PIN') + '. 1 attempt left.'; }],
+  [/^(Neplatný kód|Nesprávny PIN)\. Zostávajú (\d+) pokusy\.$/, function(m){ return (m[1] === 'Neplatný kód' ? 'Invalid code' : 'Wrong PIN') + '. ' + m[2] + ' attempts left.'; }],
+  [/^Príliš veľa pokusov\. Skús znova o (\d+) s\.$/, function(m){ return 'Too many attempts. Try again in ' + m[1] + ' s.'; }],
+  [/^Zadaj údaje z pásky za (.+) a porovnáme ich s appkou\.$/, function(m){ return 'Enter the figures from your payslip for ' + m[1] + ' and we will compare them with the app.'; }],
+  [/^Kedy a koľko si pracoval · (.+)$/, function(m){ return 'When and how much you worked · ' + m[1]; }],
+  [/^Odpracované dni \((\d+)\):$/, function(m){ return 'Days worked (' + m[1] + '):'; }],
+  [/^Najdlhšia( · .+)?$/, function(m){ return 'Longest' + (m[1] || ''); }],
+  [/^Verzia (\S+)\. Záznamy sa kopírujú v tvare dátum, od, do, aby sa dali vložiť naspäť cez import\.$/, function(m){ return 'Version ' + m[1] + '. Records are copied as date, from, to, so you can paste them back through the import.'; }],
+  [/^č\. (.+?) · (.+)$/, function(m){ return 'No. ' + m[1] + ' · ' + trans(m[2]); }],
+  [/^Pokračovať ako č\. (.+)$/, function(m){ return 'Continue as no. ' + m[1]; }],
+  [/^(.+?): (Dovolenka|PN|Idem do práce|Ranná|Poobedná|Nočná)(.*)$/, function(m){ return trans(m[1]) + ': ' + trans(m[2]) + m[3]; }],
+  [/^(Ranná|Poobedná|Nočná) (?:· )?(.+)$/, function(m){ return trans(m[1]) + ' ' + m[2]; }],
+  [/^Noc (.+)$/, function(m){ return 'Night ' + m[1]; }],
+  [/^Lekár( · .+)?$/, function(m){ return 'Doctor' + (m[1] || ''); }],
+  [/^Sviatok( ·|:) (.+)$/, function(m){ return 'Public holiday' + m[1] + ' ' + trans(m[2]); }],
+  [/^Skontroluj pole: (.+)$/, function(m){ return 'Check the field: ' + trans(m[1]); }],
+  [/^Ukážkový rozvrh\. V skutočnej verzii ho dodá zamestnávateľ\. Príplatky sú podľa pravidiel profilu (.+)\.$/, function(m){ return 'Sample schedule. In the real version it is supplied by the employer. Surcharges follow the rules of the ' + m[1] + ' profile.'; }],
+  [/^Orientačný výpočet podľa pravidiel profilu (.+)\. Záväzná je evidencia a výplata zamestnávateľa\.$/, function(m){ return 'Estimate based on the rules of the ' + m[1] + ' profile. The employer\'s records and payroll are binding.'; }],
+  [/^Zadané číslice: (\d+) zo 4$/, function(m){ return 'Digits entered: ' + m[1] + ' of 4'; }],
+  [/^Kód od zamestnávateľa, časť (\d) z 3$/, function(m){ return 'Code from your employer, part ' + m[1] + ' of 3'; }]
+];
+function tnH(n){ return (LANG === 'en' && Object.prototype.hasOwnProperty.call(EN, n)) ? EN[n] : n; }
+function pt(sk){ return (LANG === 'en' && Object.prototype.hasOwnProperty.call(PDF_EN, sk)) ? PDF_EN[sk] : sk; }
+function trans(s){
+  if (LANG !== 'en' || !s) return s;
+  var m = /^(\s*)([\s\S]*?)(\s*)$/.exec(s);
+  var core = m[2];
+  if (!core) return s;
+  var out = Object.prototype.hasOwnProperty.call(EN, core) ? EN[core] : undefined;
+  if (out === undefined){
+    for (var i = 0; i < EN_RX.length; i++){
+      var r = EN_RX[i][0].exec(core);
+      if (r){ out = EN_RX[i][1](r); break; }
+    }
+  }
+  if (out === undefined){
+    var o2 = core;
+    SUBS.forEach(function(x){ o2 = o2.replace(x[0], x[1]); });
+    if (o2 !== core) out = o2;
+  }
+  return out === undefined ? s : m[1] + out + m[3];
+}
+var TR_ATTRS = ['aria-label', 'placeholder', 'title'];
+function trAttr(el, a){
+  var v = el.getAttribute(a);
+  if (v === null) return;
+  var st = el.__tra || (el.__tra = {});
+  var rec = st[a];
+  if (!rec || rec.en !== v){ rec = st[a] = { sk: v, en: v }; }
+  var t = trans(rec.sk);
+  rec.en = t;
+  if (t !== v) el.setAttribute(a, t);
+}
+function trText(n){
+  var p = n.parentNode;
+  if (p && (p.nodeName === 'SCRIPT' || p.nodeName === 'STYLE' || p.nodeName === 'TEXTAREA')) return;
+  var cur = n.nodeValue;
+  if (n.__en === undefined || n.__en !== cur) n.__sk = cur;
+  var t = trans(n.__sk);
+  n.__en = t;
+  if (t !== cur) n.nodeValue = t;
+}
+function trNode(root){
+  if (!root) return;
+  if (root.nodeType === 3){ trText(root); return; }
+  if (root.nodeType !== 1) return;
+  var w = document.createTreeWalker(root, NodeFilter.SHOW_TEXT), n, list = [];
+  while ((n = w.nextNode())) list.push(n);
+  list.forEach(trText);
+  var els = root.querySelectorAll('[aria-label],[placeholder],[title]');
+  Array.prototype.forEach.call(els, function(e){ TR_ATTRS.forEach(function(a){ trAttr(e, a); }); });
+  TR_ATTRS.forEach(function(a){ if (root.hasAttribute(a)) trAttr(root, a); });
+}
+var trObs = null;
+function trObserve(){
+  if (trObs || !window.MutationObserver) return;
+  trObs = new MutationObserver(function(muts){
+    if (LANG !== 'en') return;
+    muts.forEach(function(mu){
+      if (mu.type === 'childList'){ Array.prototype.forEach.call(mu.addedNodes, function(nd){ trNode(nd); }); }
+      else if (mu.type === 'characterData'){ trText(mu.target); }
+      else if (mu.type === 'attributes'){ trAttr(mu.target, mu.attributeName); }
+    });
+  });
+  trObs.observe(document.body, { childList: true, subtree: true, characterData: true, attributes: true, attributeFilter: TR_ATTRS });
+}
+function retranslateAll(){
+  var w = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT), n, list = [];
+  while ((n = w.nextNode())){ if (n.__sk !== undefined) list.push(n); }
+  list.forEach(function(nd){ var t = trans(nd.__sk); nd.__en = t; if (nd.nodeValue !== t) nd.nodeValue = t; });
+  Array.prototype.forEach.call(document.querySelectorAll('*'), function(e){
+    if (!e.__tra) return;
+    Object.keys(e.__tra).forEach(function(a){ var rec = e.__tra[a]; var t = trans(rec.sk); rec.en = t; if (e.getAttribute(a) !== t) e.setAttribute(a, t); });
+  });
+}
+function applyLangArrays(){
+  if (LANG === 'en'){
+    WD = ['sun', 'mon', 'tue', 'wed', 'thu', 'fri', 'sat'];
+    WDL = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+  } else {
+    WD = ['ne', 'po', 'ut', 'st', 'št', 'pi', 'so'];
+    WDL = ['Nedeľa', 'Pondelok', 'Utorok', 'Streda', 'Štvrtok', 'Piatok', 'Sobota'];
+  }
+  holCache = {};
+}
+function updateLangSw(){
+  var el = document.getElementById('lang');
+  if (!el) return;
+  Array.prototype.forEach.call(el.querySelectorAll('button'), function(b){
+    var on = b.getAttribute('data-l') === LANG;
+    b.classList.toggle('on', on);
+    b.setAttribute('aria-pressed', on ? 'true' : 'false');
+  });
+}
+function createLangSw(){
+  if (document.getElementById('lang')) return;
+  var el = document.createElement('div');
+  el.id = 'lang'; el.className = 'langsw';
+  el.setAttribute('role', 'group'); el.setAttribute('aria-label', 'Language / Jazyk');
+  el.innerHTML = '<button data-act="lang" data-l="sk" aria-label="Slovenčina">SK</button><button data-act="lang" data-l="en" aria-label="English">EN</button>';
+  document.body.appendChild(el);
+}
+function setLang(l){
+  if (l !== 'sk' && l !== 'en') return;
+  LANG = l; lsSet('lang', l);
+  document.documentElement.lang = l;
+  applyLangArrays();
+  updateLangSw();
+  retranslateAll();
+  render();
+}
+
 /* ---------- vykresľovanie ---------- */
 var app = document.getElementById('app');
 var nav = document.getElementById('tabs');
@@ -1715,7 +2257,7 @@ function setAccent(c){
 }
 function accentFor(){
   if (S.view === 'login'){ var p = getProfile(S.selected); return p ? p.color : '#1f55d6'; }
-  if ((S.view === 'main' || S.view === 'schedule' || S.view === 'chart') && S.session){ var q = getProfile(S.session.profileId); return q ? q.color : '#1f55d6'; }
+  if ((S.view === 'main' || S.view === 'schedule' || S.view === 'chart' || S.view === 'lock' || S.view === 'pinsetup') && S.session){ var q = getProfile(S.session.profileId); return q ? q.color : '#1f55d6'; }
   if (S.view === 'rules' && S.draft) return S.draft.color;
   return '#1f55d6';
 }
@@ -1746,11 +2288,16 @@ function tick(){
 }
 var lastView = null;
 function render(){
+  renderCore();
+  if (LANG === 'en') trNode(document.body);
+}
+function renderCore(){
   if (timerId){ clearInterval(timerId); timerId = null; }
   setAccent(accentFor());
-  var dark = (S.view === 'select' || S.view === 'welcome');
+  var dark = (S.view === 'welcome' || S.view === 'select' || S.view === 'lock' || S.view === 'pinsetup');
   document.documentElement.classList.toggle('dark', dark);
   document.body.classList.toggle('dark', dark);
+  document.body.classList.toggle('inwelcome', S.view === 'welcome');
   var fcfg = FIRMS[S.selected] || {};
   var trailsOn = (S.view === 'login' && !!fcfg.login);
   document.body.classList.toggle('trails', trailsOn);
@@ -1767,6 +2314,8 @@ function render(){
   else if (S.view === 'rules') app.innerHTML = viewRules();
   else if (S.view === 'schedule') app.innerHTML = viewSchedule();
   else if (S.view === 'chart') app.innerHTML = viewChart();
+  else if (S.view === 'lock') app.innerHTML = viewLock();
+  else if (S.view === 'pinsetup') app.innerHTML = viewPinSetup();
   else app.innerHTML = viewMain();
   updateTabs();
   if (S.view === 'main' && S.tab === 'home' && document.getElementById('orbtime')){
@@ -1792,43 +2341,165 @@ var FIRMS = {
   billa: { sky:{ a:'#ffe14a', b:'#ffc400', c:'#f59e0b', d:'#d97706', h0:46, hr:10, l0:93, lr:7, sat:70, cy:0.5 }, text:false, anim:'scan', leave:4300, done:4850, login:null }
 };
 
+function cgs(){ return Array.prototype.slice.call(document.querySelectorAll('.cg')); }
+function cgValue(){ return cgs().map(function(i){ return i.value; }).join(''); }
+function cgFill(raw){
+  cgs().forEach(function(inp, k){ inp.value = raw.slice(k * 4, k * 4 + 4); });
+}
+function cgFocusNext(){
+  var arr = cgs(), i;
+  for (i = 0; i < arr.length; i++){ if (arr[i].value.length < 4){ arr[i].focus(); return; } }
+  arr[arr.length - 1].focus();
+}
+function cgInput(el){
+  clearTimeout(S.codeT);
+  var arr = cgs(), idx = arr.indexOf(el);
+  var raw = el.value.replace(/[^A-Za-z0-9]/g, '').toUpperCase();
+  if (raw.length > 4){
+    var before = arr.slice(0, idx).map(function(i){ return i.value; }).join('');
+    cgFill((before + raw).slice(0, 12));
+    cgFocusNext();
+  } else {
+    el.value = raw;
+    if (raw.length === 4 && idx < arr.length - 1) arr[idx + 1].focus();
+  }
+  var err = document.getElementById('code-err');
+  if (err && Date.now() >= S.actLock) err.textContent = '';
+  var full = cgValue().length === 12;
+  if (!S.busy) setBtn(full ? 'ready' : 'idle');
+  if (full) S.codeT = setTimeout(submitCode, REDUCE ? 0 : 340);
+}
+function lockTick(){
+  var err = document.getElementById('code-err');
+  if (!err) return;
+  var left = Math.ceil((S.actLock - Date.now()) / 1000);
+  if (left <= 0){
+    cgs().forEach(function(i){ i.disabled = false; });
+    err.textContent = '';
+    return;
+  }
+  cgs().forEach(function(i){ i.disabled = true; });
+  err.textContent = 'Príliš veľa pokusov. Skús znova o ' + left + ' s.';
+  setTimeout(lockTick, 1000);
+}
 function submitCode(){
-  var inp = document.getElementById('code');
-  if (!inp || inp.disabled || S.busy) return;
+  var arr = cgs();
+  if (!arr.length || arr[0].disabled || S.busy) return;
   var now = Date.now();
   var err = document.getElementById('code-err');
-  if (now < S.actLock){ err.textContent = 'Príliš veľa pokusov. Skús znova o chvíľu.'; return; }
-  var v = inp.value.replace(/[^A-Za-z0-9]/g, '').toUpperCase();
+  if (now < S.actLock){ lockTick(); return; }
+  var v = cgValue();
+  if (v.length < 12){
+    err.textContent = 'Kód má 12 znakov. Dopíš zvyšok.'; cgFocusNext();
+    setBtn('err'); setTimeout(function(){ setBtn('idle'); }, 480);
+    return;
+  }
   var pid = CODES[v];
   var box = document.getElementById('code-box');
   if (pid){
-    inp.disabled = true;
-    var btn = document.getElementById('code-btn');
-    btn.disabled = true;
-    btn.textContent = 'Kód prijatý ✓';
+    arr.forEach(function(i){ i.disabled = true; i.blur(); });
     box.classList.add('ok');
     err.textContent = '';
     S.busy = true;
-    setTimeout(function(){ startFirm(pid); }, REDUCE ? 100 : 550);
+    if (REDUCE){ setBtn('ok'); setTimeout(function(){ startFirm(pid); }, 100); }
+    else {
+      setBtn('press');
+      setTimeout(function(){ setBtn('loading'); }, 150);
+      setTimeout(function(){ setBtn('ok'); }, 650);
+      setTimeout(function(){ startFirm(pid); }, 1150);
+    }
   } else {
     S.actFails++;
     box.classList.remove('shake'); void box.offsetWidth; box.classList.add('shake');
-    inp.value = '';
+    arr.forEach(function(i){ i.value = ''; });
+    arr[0].focus();
+    setBtn('err'); setTimeout(function(){ setBtn('idle'); }, 480);
     if (S.actFails >= 5){
       S.actFails = 0;
       S.actLock = now + 30000;
-      inp.disabled = true;
-      err.textContent = 'Príliš veľa pokusov. Skús znova o 30 sekúnd.';
-      setTimeout(function(){
-        var i2 = document.getElementById('code');
-        if (i2) i2.disabled = false;
-        var e2 = document.getElementById('code-err');
-        if (e2) e2.textContent = '';
-      }, 30000);
+      lockTick();
     } else {
-      err.textContent = 'Neplatný kód.';
+      var left = 5 - S.actFails;
+      err.textContent = 'Neplatný kód. ' + (left === 1 ? 'Zostáva 1 pokus.' : 'Zostávajú ' + left + ' pokusy.');
     }
   }
+}
+
+/* ---------- skenovanie QR kódu ---------- */
+var qrStream = null, qrRaf = 0, qrDetector = null, qrCanvas = null, qrTick = 0;
+function qrMsg(t){ var m = document.getElementById('qr-msg'); if (m) m.textContent = t; }
+function loadJsQR(){
+  if (window.jsQR) return Promise.resolve();
+  return new Promise(function(res){
+    var sc = document.createElement('script');
+    sc.src = 'https://cdnjs.cloudflare.com/ajax/libs/jsQR/1.4.0/jsQR.min.js';
+    sc.onload = function(){ res(); };
+    sc.onerror = function(){ qrMsg('Skenovanie sa nepodarilo načítať. Zadaj kód ručne.'); res(); };
+    document.head.appendChild(sc);
+  });
+}
+function qrOpen(){
+  var ov = document.getElementById('qr-ov');
+  if (!ov) return;
+  ov.hidden = false;
+  qrMsg('Spúšťam fotoaparát…');
+  if (!navigator.mediaDevices || !navigator.mediaDevices.getUserMedia){
+    qrMsg('Fotoaparát nie je v tomto prehliadači dostupný. Zadaj kód ručne.');
+    return;
+  }
+  navigator.mediaDevices.getUserMedia({ video: { facingMode: { ideal: 'environment' } }, audio: false }).then(function(stream){
+    qrStream = stream;
+    var v = document.getElementById('qr-video');
+    if (!v){ qrClose(); return; }
+    v.srcObject = stream;
+    v.setAttribute('playsinline', '');
+    var pl = v.play(); if (pl && pl.catch) pl.catch(function(){});
+    qrMsg('Namier fotoaparát na QR kód.');
+    var ready;
+    if ('BarcodeDetector' in window){
+      try { qrDetector = new BarcodeDetector({ formats: ['qr_code'] }); ready = Promise.resolve(); } catch (e) { ready = loadJsQR(); }
+    } else { ready = loadJsQR(); }
+    ready.then(qrLoop);
+  }).catch(function(){
+    qrMsg('Prístup k fotoaparátu nebol povolený. Zadaj kód ručne.');
+  });
+}
+function qrClose(){
+  if (qrRaf){ cancelAnimationFrame(qrRaf); qrRaf = 0; }
+  if (qrStream){ qrStream.getTracks().forEach(function(t){ t.stop(); }); qrStream = null; }
+  var ov = document.getElementById('qr-ov');
+  if (ov) ov.hidden = true;
+}
+function qrHit(text){
+  var m = String(text).match(/([A-Za-z0-9]{4})[-\s]?([A-Za-z0-9]{4})[-\s]?([A-Za-z0-9]{4})/);
+  if (!m){ qrMsg('V tomto QR kóde som nenašiel kód. Skús iný.'); qrRaf = requestAnimationFrame(qrLoop); return; }
+  qrClose();
+  cgFill((m[1] + m[2] + m[3]).toUpperCase());
+  submitCode();
+}
+function qrLoop(){
+  var ov = document.getElementById('qr-ov'), v = document.getElementById('qr-video');
+  if (!ov || ov.hidden || !v) return;
+  qrRaf = requestAnimationFrame(function(){
+    qrTick++;
+    if (v.readyState >= 2 && qrTick % 3 === 0){
+      if (qrDetector){
+        qrDetector.detect(v).then(function(r){ if (r && r[0] && r[0].rawValue) qrHit(r[0].rawValue); else qrLoop(); }).catch(function(){ qrLoop(); });
+        return;
+      }
+      if (window.jsQR && v.videoWidth){
+        var sc = Math.min(1, 480 / v.videoWidth);
+        var w = Math.max(1, Math.round(v.videoWidth * sc)), h = Math.max(1, Math.round(v.videoHeight * sc));
+        if (!qrCanvas) qrCanvas = document.createElement('canvas');
+        qrCanvas.width = w; qrCanvas.height = h;
+        var cx = qrCanvas.getContext('2d', { willReadFrequently: true });
+        cx.drawImage(v, 0, 0, w, h);
+        var d = window.jsQR(cx.getImageData(0, 0, w, h).data, w, h);
+        if (d && d.data){ qrHit(d.data); return; }
+      }
+    }
+    qrLoop();
+  });
 }
 function startFirm(pid){
   var f = FIRMS[pid] || FIRMS.moja;
@@ -1836,7 +2507,8 @@ function startFirm(pid){
   skyTheme(f.sky);
   var introEl = document.querySelector('.intro');
   if (introEl) introEl.classList.add('leaving');
-  document.body.classList.add('blue');
+  document.body.classList.add('bluepre');
+  requestAnimationFrame(function(){ requestAnimationFrame(function(){ document.body.classList.add('blue'); }); });
   if (f.anim !== 'scan'){ skyStart(); skyMode('spin'); }
   setTimeout(function(){ S.view = 'welcome'; render(); }, REDUCE ? 150 : 650);
   setTimeout(function(){ skyMode('calm'); }, REDUCE ? 150 : 2800);
@@ -1849,9 +2521,15 @@ function startFirm(pid){
 function finishActivation(){
   var pid = S.selected;
   document.body.classList.remove('blue');
+  document.body.classList.remove('bluepre');
   skyMode('idle');
   S.wnDraft = ''; S.loginErr = ''; S.actFails = 0;
-  if (S.session && S.session.profileId === pid){ S.month = new Date(); S.tab = 'home'; S.view = 'main'; }
+  if (S.session && S.session.profileId === pid){
+    S.month = new Date(); S.tab = 'home';
+    if (S.forgot){ lsDel(pinKey()); S.forgot = false; }
+    S.pinBuf = ''; S.pinStep = 'enter'; S.pinErr = '';
+    S.view = hasPin() ? 'main' : 'pinsetup';
+  }
   else { S.view = 'login'; }
   S.busy = false;
   render();
@@ -1896,7 +2574,7 @@ document.addEventListener('click', function(e){
   if (!el) return;
   var act = el.getAttribute('data-act');
   // klik na pozadie panela zavrie panel, klik vnútri nie
-  if ((act === 'sheetClose' || act === 'netClose' || act === 'planClose') && el.classList.contains('sheet-back') && e.target !== el) return;
+  if ((act === 'sheetClose' || act === 'netClose' || act === 'planClose' || act === 'helpClose') && el.classList.contains('sheet-back') && e.target !== el) return;
   if (act !== 'del') S.confirmDel = null;
   if (act !== 'wipe') S.confirmWipe = false;
   if (act === 'prev' || act === 'next'){ S.chartSel = null; S.chartScroll = null; }
@@ -1904,6 +2582,47 @@ document.addEventListener('click', function(e){
   if (act === 'code'){
     submitCode();
     return;
+  } else if (act === 'lang'){
+    setLang(el.getAttribute('data-l'));
+    return;
+  } else if (act === 'help'){
+    var hs = document.getElementById('help-sheet'); if (hs) hs.hidden = false;
+    return;
+  } else if (act === 'helpClose'){
+    var hs2 = document.getElementById('help-sheet'); if (hs2) hs2.hidden = true;
+    return;
+  } else if (act === 'scan'){
+    qrOpen();
+    return;
+  } else if (act === 'scanClose'){
+    qrClose();
+    return;
+  } else if (act === 'resume'){
+    var rp = S.session && getProfile(S.session.profileId);
+    if (rp){ S.selected = rp.id; S.month = new Date(); S.tab = 'home'; S.pinBuf = ''; S.pinStep = 'enter'; S.pinErr = ''; S.view = hasPin() ? 'lock' : 'pinsetup'; }
+  } else if (act === 'otherCode'){
+    S.introOther = true;
+  } else if (act === 'pk'){
+    if (Date.now() < S.pinLockUntil) return;
+    if (S.pinBuf.length < 4) S.pinBuf += el.getAttribute('data-k');
+    S.pinErr = (S.view === 'lock' && S.pinFails > 0) ? S.pinErr : '';
+    if (S.pinBuf.length === 4) pinComplete();
+  } else if (act === 'pkdel'){
+    S.pinBuf = S.pinBuf.slice(0, -1);
+  } else if (act === 'bio'){
+    var rb = loadPin();
+    if (rb && rb.b && navigator.credentials){
+      bioCheck(rb.b).then(function(){ pinUnlock(); render(); }).catch(function(){ S.pinErr = 'Face ID sa nepodarilo. Zadaj PIN.'; render(); });
+    }
+    return;
+  } else if (act === 'bioOn'){
+    bioRegister('č. ' + S.session.workNo).then(function(id){ var r0 = loadPin(); if (r0){ r0.b = id; savePin(r0); } pinUnlock(); render(); })
+      .catch(function(){ S.pinErr = 'Face ID sa nepodarilo zapnúť. Skús to neskôr alebo pokračuj s PIN-om.'; render(); });
+    return;
+  } else if (act === 'bioSkip'){
+    pinUnlock();
+  } else if (act === 'forgotPin'){
+    S.forgot = true; S.introOther = true; S.pinBuf = ''; S.pinErr = ''; S.view = 'select';
   } else if (act === 'new'){
     S.draft = newDraft(); S.rulesBack = 'select'; S.rulesErr = ''; S.view = 'rules';
   } else if (act === 'back'){
@@ -1928,7 +2647,8 @@ document.addEventListener('click', function(e){
       S.session = { profileId:S.selected, workNo:wn, type:S.loginType };
       lsSet('session', JSON.stringify(S.session));
       S.month = new Date(); S.tab = 'home';
-      S.view = 'main';
+      S.pinBuf = ''; S.pinStep = 'enter'; S.pinErr = '';
+      S.view = hasPin() ? 'main' : 'pinsetup';
     }
   } else if (act === 'logout'){
     lsDel('session'); S.session = null; S.view = 'select';
@@ -1960,6 +2680,18 @@ document.addEventListener('click', function(e){
   } else if (act === 'wipe'){
     if (S.confirmWipe){ lsDel(recKey()); S.confirmWipe = false; toast('Záznamy boli zmazané.'); }
     else { S.confirmWipe = true; }
+  } else if (act === 'expRecs'){
+    var txt = expRecsText();
+    if (!txt){ toast('Zatiaľ nemáš dokončené záznamy.'); return; }
+    var ta0 = document.getElementById('imp');
+    if (ta0) ta0.value = txt;
+    if (navigator.clipboard && navigator.clipboard.writeText){
+      navigator.clipboard.writeText(txt).then(function(){ toast('Záznamy sú skopírované.'); }, function(){ toast('Záznamy sú v poli vyššie, skopíruj ich ručne.'); });
+    } else { toast('Záznamy sú v poli vyššie, skopíruj ich ručne.'); }
+    return;
+  } else if (act === 'reload'){
+    reloadFresh();
+    return;
   } else if (act === 'planAdd'){
     var sd = S.selDay || new Date();
     var rsh = shiftTimes(sd);
@@ -2090,11 +2822,8 @@ document.addEventListener('click', function(e){
 });
 
 document.addEventListener('input', function(e){
-  if (e.target && e.target.id === 'code'){
-    var raw = e.target.value.replace(/[^A-Za-z0-9]/g, '').toUpperCase().slice(0, 12);
-    var fmt = raw.replace(/(.{4})(?=.)/g, '$1-');
-    if (fmt !== e.target.value) e.target.value = fmt;
-    if (raw.length === 12) submitCode();
+  if (e.target && e.target.classList && e.target.classList.contains('cg')){
+    cgInput(e.target);
     return;
   }
   if (e.target && e.target.id === 'f-color'){
@@ -2126,7 +2855,36 @@ document.addEventListener('change', function(e){
 });
 
 document.addEventListener('keydown', function(e){
-  if (e.key === 'Enter' && e.target && e.target.id === 'code') submitCode();
+  var t = e.target;
+  if (!t || !t.classList || !t.classList.contains('cg')) return;
+  var arr = cgs(), idx = arr.indexOf(t);
+  if (e.key === 'Enter'){ e.preventDefault(); clearTimeout(S.codeT); if (cgValue().length === 12) submitCode(); else cgFocusNext(); }
+  else if (e.key === 'Backspace' && t.value === '' && idx > 0){
+    e.preventDefault();
+    arr[idx - 1].value = arr[idx - 1].value.slice(0, -1);
+    arr[idx - 1].focus();
+  }
+  else if (e.key === 'ArrowLeft' && t.selectionStart === 0 && idx > 0){ e.preventDefault(); arr[idx - 1].focus(); }
+  else if (e.key === 'ArrowRight' && t.selectionStart === t.value.length && idx < arr.length - 1){ e.preventDefault(); arr[idx + 1].focus(); }
+});
+document.addEventListener('focusin', function(e){
+  var t = e.target;
+  if (t && t.classList && t.classList.contains('cg') && t.value){ setTimeout(function(){ try { t.select(); } catch (er) {} }, 0); }
+});
+document.addEventListener('paste', function(e){
+  var t = e.target;
+  if (!t || !t.classList || !t.classList.contains('cg')) return;
+  e.preventDefault();
+  var txt = (e.clipboardData || window.clipboardData).getData('text') || '';
+  var raw = txt.replace(/[^A-Za-z0-9]/g, '').toUpperCase().slice(0, 12);
+  if (!raw) return;
+  clearTimeout(S.codeT);
+  cgFill(raw);
+  cgFocusNext();
+  var er = document.getElementById('code-err');
+  if (er && Date.now() >= S.actLock) er.textContent = '';
+  if (!S.busy) setBtn(raw.length === 12 ? 'ready' : 'idle');
+  if (raw.length === 12) S.codeT = setTimeout(submitCode, REDUCE ? 0 : 340);
 });
 
 window.addEventListener('resize', function(){
@@ -2136,7 +2894,24 @@ window.addEventListener('resize', function(){
 /* ---------- štart ---------- */
 loadProfiles();
 loadSession();
+LANG = (lsGet('lang') === 'en') ? 'en' : 'sk';
+document.documentElement.lang = LANG;
+applyLangArrays();
+createLangSw();
+updateLangSw();
+trObserve();
+if (S.session && hasPin()){ S.selected = S.session.profileId; S.view = 'lock'; }
+else if (S.session && /[?&]v=/.test(location.search)){ S.selected = S.session.profileId; S.month = new Date(); S.tab = 'home'; S.view = 'pinsetup'; }
 render();
+checkUpdate();
+bioAvailable().then(function(v){ S.bioOK = !!v; if (S.view === 'pinsetup' || S.view === 'lock') render(); });
+document.addEventListener('visibilitychange', function(){
+  if (document.hidden){ S.hiddenAt = Date.now(); return; }
+  checkUpdate();
+  if (S.session && hasPin() && (S.view === 'main' || S.view === 'schedule' || S.view === 'chart') && S.hiddenAt && Date.now() - S.hiddenAt >= 60000){
+    S.pinBuf = ''; S.pinErr = ''; S.sheet = false; S.netSheet = false; S.planSheet = null; S.view = 'lock'; render();
+  }
+});
 })();
 </script>
 </body>
