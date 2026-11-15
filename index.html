@@ -534,7 +534,7 @@ body.dark .langsw button.on{background:rgba(255,255,255,.92);color:#0b0c10}
 <script>
 (function(){
 'use strict';
-var APP_VERSION = '2026-11-13g';
+var APP_VERSION = '2026-11-15a';
 var LANG = 'sk';
 function LOC(){ return LANG === 'en' ? 'en-GB' : 'sk-SK'; }
 
@@ -625,7 +625,13 @@ function startOf(d, mode){
   var t = Math.floor(d.getTime() / MIN) * MIN;
   if (mode !== 'stvrt' || d.getMinutes() === 0) return t;
   var b = 15 * MIN;
-  return (Math.ceil(t / b) - 1) * b;
+  return (Math.ceil(t / b)) * b;
+}
+  function endOf(d, mode){
+  var t = Math.floor(d.getTime() / MIN) * MIN;
+  if (mode !== 'stvrt') return d.getTime();
+  var b = 15 * MIN;
+  return (Math.floor(t / b)) * b;
 }
 function breaksOf(R){
   var a = [];
@@ -636,7 +642,7 @@ function breaksOf(R){
 function calc(rec, R){
   if (!rec.o) return { hours:0, wage:0 };
   var start = startOf(new Date(rec.p), R.zaokruhlenie);
-  var end = new Date(rec.o).getTime();
+  var end = endOf (new Date(rec.o), R.zaokruhlenie);
   if (end <= start) return { hours:0, wage:0 };
   var lenMin = (end - start) / MIN;
   var brk = breaksOf(R).filter(function(b){ return lenMin >= b.od; });
@@ -1179,7 +1185,7 @@ function viewChart(){
     var kind = (h >= 4 && h < 12) ? 'R' : ((h >= 12 && h < 20) ? 'P' : 'N');
     cut(ps, os, kind);
     var st = startOf(p, R.zaokruhlenie);
-    var lenMin = (os - st) / MIN;
+    var lenMin = (endOf(o, R.zaokruhlenie) - st) / MIN;
     breaksOf(R).forEach(function(b){
       if (lenMin >= b.od) cut(st + b.po * 60 * MIN, st + (b.po * 60 + b.min) * MIN, 'brk');
     });
