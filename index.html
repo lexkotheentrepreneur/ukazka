@@ -274,9 +274,9 @@ body.blue #skyblue{opacity:1}
 .wkb.P{background:linear-gradient(180deg,color-mix(in srgb,var(--tint) 27%,transparent),color-mix(in srgb,var(--tint) 12%,transparent))}
 .wkb.N{background:linear-gradient(180deg,color-mix(in srgb,var(--tint) 40%,transparent),color-mix(in srgb,var(--tint) 20%,transparent));color:var(--atext)}
 .wkb .r{font-weight:600;opacity:.8}
-.sw.R{background:color-mix(in srgb,var(--tint) 22%,#ffffff)}
-.sw.P{background:color-mix(in srgb,var(--tint) 42%,#ffffff)}
-.sw.N{background:color-mix(in srgb,var(--tint) 66%,#ffffff)}
+.sw.R{background:var(--wk-sw-R,color-mix(in srgb,var(--tint) 22%,#ffffff))}
+.sw.P{background:var(--wk-sw-P,color-mix(in srgb,var(--tint) 42%,#ffffff))}
+.sw.N{background:var(--wk-sw-N,color-mix(in srgb,var(--tint) 66%,#ffffff))}
 .cal-h span{text-align:center;font-size:12px;font-weight:600;color:var(--mute);padding-bottom:8px}
 .cell{position:relative;height:48px;min-width:0;border-radius:14px;border:1px solid transparent;background:rgba(255,255,255,.62);display:grid;align-content:center;justify-items:center;padding:0;font-weight:600;font-size:15px}
 .cell.empty{visibility:hidden;background:none}
@@ -365,6 +365,25 @@ body.blue #skyblue{opacity:1}
 .t-smena{background:#1f9d55}.t-dov{background:#f59e0b}.t-pn{background:#e0556b}.t-lekar{background:#8b5cf6}.t-ine{background:#6b7280}
 .cell .pds{position:absolute;left:0;right:0;bottom:3px;display:flex;justify-content:center;gap:2px;pointer-events:none}
 .cell .pds i{width:5px;height:5px;border-radius:50%}
+.cell.work{background:var(--wk-bg,rgba(31,85,214,.13));border-color:var(--wk-bd,rgba(31,85,214,.4))}
+.cell.work-R{background:var(--wk-bg-R,color-mix(in srgb,var(--tint) 17%,transparent));border-color:var(--wk-bd-R,color-mix(in srgb,var(--tint) 32%,transparent))}
+.cell.work-P{background:var(--wk-bg-P,color-mix(in srgb,var(--tint) 30%,transparent));border-color:var(--wk-bd-P,color-mix(in srgb,var(--tint) 45%,transparent))}
+.cell.work-N{background:var(--wk-bg-N,color-mix(in srgb,var(--tint) 46%,transparent));border-color:var(--wk-bd-N,color-mix(in srgb,var(--tint) 60%,transparent))}
+.cell.work.sel{background:#ffffff}
+.cell.off{background:rgba(120,128,145,.16);color:var(--mute)}
+.cell.off.sel{background:#ffffff}
+.cell .offt{font-size:9px;font-weight:600;color:var(--mute);line-height:1;margin-top:1px}
+.sw.W{background:var(--wk-sw,rgba(31,85,214,.45))}
+.sw.O{background:rgba(120,128,145,.4)}
+.sheet.tall{max-height:92dvh;overflow-y:auto}
+.tchip.acc.on{background:var(--accent)}
+.wpanel{display:grid;gap:12px;padding:14px;border-radius:18px;background:rgba(31,85,214,.07)}
+.wrow{display:grid;grid-template-columns:96px 1fr 1fr;gap:10px;align-items:center}
+.wrow.whead{font-size:13px;color:var(--mute);font-weight:600}
+.wday{display:flex;align-items:center;gap:10px;font-weight:600;font-size:16px}
+.wday input{width:22px;height:22px;accent-color:var(--accent)}
+.wt{width:100%;min-width:0;padding:10px;border-radius:12px;border:1px solid rgba(11,13,18,.14);background:#ffffff;font:inherit;font-size:16px;color:var(--ink)}
+.wrow:not(:has(input[type=checkbox]:checked)) .wt{opacity:.45}
 .cell.mine{background:rgba(31,157,85,.26);border-color:rgba(31,157,85,.75)}
 .cell.sick{background:rgba(224,85,107,.13)}
 .cell.vac{background:rgba(245,158,11,.15)}
@@ -435,7 +454,7 @@ html,body{transition:background-color .7s ease}
 .pin-sub{margin:0;color:var(--mute);font-size:14px;text-align:center;max-width:30ch}
 
 /* výber jazyka */
-.langsw{position:fixed;top:calc(env(safe-area-inset-top,0px) + 30px);right:12px;z-index:30;display:flex;padding:3px;border-radius:999px;background:rgba(255,255,255,.74);-webkit-backdrop-filter:blur(14px) saturate(1.5);backdrop-filter:blur(14px) saturate(1.5);border:1px solid rgba(255,255,255,.9);box-shadow:0 6px 16px rgba(14,34,80,.12)}
+.langsw{position:fixed;top:calc(env(safe-area-inset-top,0px) + 26px);right:12px;z-index:30;display:flex;padding:3px;border-radius:999px;background:rgba(255,255,255,.74);-webkit-backdrop-filter:blur(14px) saturate(1.5);backdrop-filter:blur(14px) saturate(1.5);border:1px solid rgba(255,255,255,.9);box-shadow:0 6px 16px rgba(14,34,80,.12)}
 .langsw button{border:0;background:transparent;border-radius:999px;padding:6px 11px;min-width:38px;font-size:13px;font-weight:700;letter-spacing:.04em;color:var(--mute);cursor:pointer}
 .langsw button.on{background:var(--accent);color:var(--on-accent,#ffffff)}
 
@@ -534,7 +553,7 @@ body.dark .langsw button.on{background:rgba(255,255,255,.92);color:#0b0c10}
 <script>
 (function(){
 'use strict';
-var APP_VERSION = '2026-11-15a';
+var APP_VERSION = '2026-11-24h';
 var LANG = 'sk';
 function LOC(){ return LANG === 'en' ? 'en-GB' : 'sk-SK'; }
 
@@ -612,6 +631,8 @@ var GROUPS = [
   ['Prestávka 1', [['b1min','Dĺžka (min, 0 = žiadna)'],['b1po','Začína po (hodinách)'],['b1od','Platí od dĺžky smeny (min)']]],
   ['Prestávka 2', [['b2min','Dĺžka (min, 0 = žiadna)'],['b2po','Začína po (hodinách)'],['b2od','Platí od dĺžky smeny (min)']]]
 ];
+/* minimálna mzda 2026: 915 € mesačne, 5,259 € za hodinu; príplatky: noc 35 %, sobota 50 %, nedeľa 100 % */
+var MINW = { mes:915, hod:5.26, noc:1.84, sob:2.63, ned:5.26 };
 var FIELDS = [];
 GROUPS.forEach(function(g){ g[1].forEach(function(f){ FIELDS.push(f); }); });
 
@@ -627,7 +648,7 @@ function startOf(d, mode){
   var b = 15 * MIN;
   return (Math.ceil(t / b)) * b;
 }
-  function endOf(d, mode){
+function endOf(d, mode){
   var t = Math.floor(d.getTime() / MIN) * MIN;
   if (mode !== 'stvrt') return d.getTime();
   var b = 15 * MIN;
@@ -642,7 +663,7 @@ function breaksOf(R){
 function calc(rec, R){
   if (!rec.o) return { hours:0, wage:0 };
   var start = startOf(new Date(rec.p), R.zaokruhlenie);
-  var end = endOf (new Date(rec.o), R.zaokruhlenie);
+  var end = endOf(new Date(rec.o), R.zaokruhlenie);
   if (end <= start) return { hours:0, wage:0 };
   var lenMin = (end - start) / MIN;
   var brk = breaksOf(R).filter(function(b){ return lenMin >= b.od; });
@@ -713,7 +734,105 @@ function shiftTypeFor(d){
   var dow = (d.getDay() + 6) % 7;
   return dow >= 5 ? 'V' : weekType(d);
 }
+/* vlastný týždenný rozvrh brigádnika: index 0 = nedeľa ... 6 = sobota */
+function isBrSession(){ return !!S.session && S.session.type === 'brigadnik'; }
+function weekKey(){ return 'week:' + S.session.profileId + ':' + S.session.workNo; }
+function mondayOf(d){ return new Date(d.getFullYear(), d.getMonth(), d.getDate() - ((d.getDay() + 6) % 7)); }
+function weekParity(d, anchor){
+  var m = mondayOf(d), an = pdate(anchor);
+  var diff = Math.round((Date.UTC(m.getFullYear(), m.getMonth(), m.getDate()) - Date.UTC(an.getFullYear(), an.getMonth(), an.getDate())) / 604800000);
+  return ((diff % 2) + 2) % 2;
+}
+function blankDays(){ var w = []; for (var i = 0; i < 7; i++) w.push({ on:false, a:'06:00', b:'14:00' }); return w; }
+function defaultWeek(){ return { cycle:1, anchor:ymd(mondayOf(new Date())), a:blankDays() }; }
+function loadWeek(){
+  var r = lsGet(weekKey());
+  if (!r) return null;
+  try {
+    var o = JSON.parse(r);
+    if (Array.isArray(o) && o.length === 7){ var d0 = defaultWeek(); d0.a = o; return d0; }
+    if (o && Array.isArray(o.a) && o.a.length === 7){
+      o.cycle = o.cycle === 2 ? 2 : 1;
+      if (!o.anchor) o.anchor = ymd(mondayOf(new Date()));
+      return o;
+    }
+  } catch (e) {}
+  return null;
+}
+function saveWeek(o){ lsSet(weekKey(), JSON.stringify(o)); }
+/* cyklus 2 = pracuje sa každý druhý týždeň: týždne s rovnakou paritou ako anchor sú pracovné, ostatné voľné */
+function weekEntry(d){
+  var wk = loadWeek();
+  if (!wk) return null;
+  if (wk.cycle === 2 && weekParity(d, wk.anchor) === 1) return null;
+  return wk.a[d.getDay()];
+}
+function sumDays(w){
+  var order = [1, 2, 3, 4, 5, 6, 0], out = [], i = 0;
+  function nm(d){ var x = WD[d]; return x.charAt(0).toUpperCase() + x.slice(1); }
+  while (i < 7){
+    var e = w[order[i]];
+    if (!e.on){ i++; continue; }
+    var j = i;
+    while (j + 1 < 7 && w[order[j + 1]].on && w[order[j + 1]].a === e.a && w[order[j + 1]].b === e.b) j++;
+    out.push((j > i ? nm(order[i]) + '–' + nm(order[j]) : nm(order[i])) + ' ' + e.a + '–' + e.b);
+    i = j + 1;
+  }
+  return out.join(' · ');
+}
+function weekSummary(){
+  var wk = loadWeek();
+  if (!wk) return 'Zatiaľ nemáš nastavený rozvrh.';
+  var a = sumDays(wk.a);
+  if (!a) return 'Zatiaľ nemáš nastavený rozvrh.';
+  if (wk.cycle !== 2) return a + ' · každý týždeň';
+  return a + ' · každý druhý týždeň (tento týždeň ' + (weekParity(new Date(), wk.anchor) === 0 ? 'pracuješ' : 'máš voľno') + ')';
+}
+function readWeekInto(){
+  var ws = S.weekSheet;
+  if (!ws) return;
+  var w = [];
+  for (var i = 0; i < 7; i++){
+    var on = document.getElementById('wk-on-' + i), a = document.getElementById('wk-a-' + i), b = document.getElementById('wk-b-' + i);
+    w.push({ on: !!(on && on.checked), a: a ? a.value : '', b: b ? b.value : '' });
+  }
+  ws.a = w;
+}
+function weekSheetHTML(){
+  var ws = S.weekSheet, w = ws.a, order = [1, 2, 3, 4, 5, 6, 0];
+  function chip(label, act, attr, on){ return '<button class="tchip acc' + (on ? ' on' : '') + '" data-act="' + act + '" ' + attr + '>' + label + '</button>'; }
+  var repTxt = ws.cycle === 2 ? 'každý druhý týždeň' : 'každý týždeň';
+  var panel = '';
+  if (S.weekPanel){
+    panel = '<div class="wpanel"><div class="field" style="gap:8px">Opakovanie<div class="tchips">' + chip('Každý týždeň', 'weekCycle', 'data-c="1"', ws.cycle === 1) + chip('Každý druhý týždeň', 'weekCycle', 'data-c="2"', ws.cycle === 2) + '</div></div>' +
+      (ws.cycle === 2 ? '<div class="field" style="gap:8px">Prvý pracovný týždeň<div class="tchips">' + chip('Tento týždeň', 'weekCur', 'data-w="this"', !ws.startNext) + chip('Budúci týždeň', 'weekCur', 'data-w="next"', !!ws.startNext) + '</div></div>' +
+        '<p class="muted" style="margin:0;font-size:13px">Dni a časy nižšie platia v pracovných týždňoch, v ostatných máš voľno.</p>' : '') + '</div>';
+  }
+  var rows = order.map(function(i){
+    var e = w[i], nm = WD[i].charAt(0).toUpperCase() + WD[i].slice(1);
+    return '<div class="wrow"><label class="wday"><input type="checkbox" id="wk-on-' + i + '"' + (e.on ? ' checked' : '') + '><span>' + nm + '</span></label>' +
+      '<input class="wt" type="time" id="wk-a-' + i + '" value="' + esc(e.a) + '" aria-label="Od"><input class="wt" type="time" id="wk-b-' + i + '" value="' + esc(e.b) + '" aria-label="Do"></div>';
+  }).join('');
+  return '<div class="sheet-back" data-act="weekClose"><div class="sheet glass enter tall" role="dialog" aria-label="Môj rozvrh">' +
+    '<h2>Môj rozvrh</h2>' +
+    '<p class="muted" style="margin:0;font-size:14px">Zaškrtni dni, v ktoré pracuješ, a nastav čas od do. Ak smena končí po polnoci, zadaj čas do ďalšieho dňa, napríklad 22:00 až 06:00.</p>' +
+    '<div class="wrow whead"><span>Pracujem</span><span>Od</span><span>Do</span></div>' + rows +
+    '<button class="btn soft" data-act="weekRep">' + icon('cal') + 'Nastaviť týždne · ' + repTxt + '</button>' + panel +
+    '<div class="err">' + esc(S.weekErr || '') + '</div>' +
+    '<button class="btn" data-act="weekSave">Uložiť</button>' +
+    '<button class="btn soft" data-act="weekClose">Zrušiť</button></div></div>';
+}
 function shiftTimes(d){
+  if (isBrSession()){
+    var e = weekEntry(d);
+    if (!e || !e.on || !e.a || !e.b) return null;
+    var pa = e.a.split(':'), pb = e.b.split(':');
+    var s0 = new Date(d.getFullYear(), d.getMonth(), d.getDate(), +pa[0], +pa[1]);
+    var e0 = new Date(d.getFullYear(), d.getMonth(), d.getDate(), +pb[0], +pb[1]);
+    if (e0 <= s0) e0.setDate(e0.getDate() + 1);
+    var hh = s0.getHours(), kind = (hh >= 4 && hh < 12) ? 'R' : ((hh >= 12 && hh < 20) ? 'P' : 'N');
+    return { type:kind, name:SHIFTS[kind].n, start:s0, end:e0 };
+  }
   var t = shiftTypeFor(d);
   if (t === 'V') return null;
   var sh = SHIFTS[t];
@@ -1313,8 +1432,10 @@ function viewSchedule(){
   var days = new Date(y, m + 1, 0).getDate();
   var cells = '';
   var allPlans = loadPlans();
+  var hasSched = false;
+  if (isBr && prof.id === 'billa'){ var wk9 = loadWeek(); hasSched = !!(wk9 && wk9.a.some(function(e){ return e.on; })); }
   for (var w = 1 - lead; w <= days; w += 7){
-    var type = weekType(new Date(y, m, w));
+    var type = isBr ? 'V' : weekType(new Date(y, m, w));
     var vis = [];
     var html = '';
     for (var c = 0; c < 7; c++){
@@ -1330,9 +1451,11 @@ function viewSchedule(){
       pls.forEach(function(p){ tset[p.t] = true; });
       var tcls = tset.smena ? ' mine' : (tset.pn ? ' sick' : (tset.dov ? ' vac' : ''));
       var pds = ['smena', 'dov', 'pn', 'lekar', 'ine'].filter(function(k){ return tset[k]; }).map(function(k){ return '<i class="t-' + k + '"></i>'; }).join('');
-      var cls = 'cell' + tcls + (dt.getTime() === today.getTime() ? ' today' : '') + (dt.getTime() === sel.getTime() ? ' sel' : '') + (hol ? ' hol' : '');
+      var sht = isBr ? shiftTimes(dt) : null;
+      var offDay = hasSched && !sht;
+      var cls = 'cell' + (sht ? ' work work-' + sht.type : (offDay ? ' off' : '')) + tcls + (dt.getTime() === today.getTime() ? ' today' : '') + (dt.getTime() === sel.getTime() ? ' sel' : '') + (hol ? ' hol' : '');
       html += '<button class="' + cls + '" style="grid-column:' + (c + 1) + '" data-act="day" data-d="' + ymd(dt) + '" aria-label="' + dt.getDate() + '. ' + (m + 1) + '.' + (hol ? ', sviatok' : '') + (pls.length ? ', ' + pls.length + ' záznamov' : '') + '">' +
-        '<span class="n">' + dt.getDate() + '</span>' + (hol ? '<i class="hd"></i>' : '') + (pds ? '<span class="pds">' + pds + '</span>' : '') + '</button>';
+        '<span class="n">' + dt.getDate() + '</span>' + (hol ? '<i class="hd"></i>' : '') + (pds ? '<span class="pds">' + pds + '</span>' : (offDay ? '<span class="offt">voľno</span>' : '')) + '</button>';
     }
     var blk = '';
     if (type !== 'V' && vis.length){
@@ -1381,12 +1504,16 @@ function viewSchedule(){
     detail += '</div><h3 class="sec">Príplatky v tento deň</h3><div class="glass group">' + surHtml;
   }
 
-  return '<main class="wrap">' +
+  var wkc = prof.id === 'billa' ? '--wk-bg-R:rgba(255,210,0,.30);--wk-bd-R:rgba(214,164,0,.55);--wk-bg-P:rgba(255,200,0,.62);--wk-bd-P:rgba(205,155,0,.85);--wk-bg-N:rgba(236,160,0,.90);--wk-bd-N:rgba(165,110,0,.95);--wk-sw-R:rgba(255,210,0,.45);--wk-sw-P:rgba(255,200,0,.8);--wk-sw-N:rgba(236,160,0,1)' : '';
+  return '<main class="wrap"' + (wkc ? ' style="' + wkc + '"' : '') + '>' +
     '<div class="topline"><button class="ibtn" data-act="schedBack" aria-label="Späť">' + icon('left') + '</button><h2>Rozvrh smeny</h2></div>' +
+    (isBr ? '<div class="glass pk-card" style="margin-top:14px"><h2>Môj rozvrh</h2><p class="muted" style="margin:0;font-size:14px">' + esc(weekSummary()) + '</p><button class="btn soft" data-act="weekOpen">' + icon('sliders') + 'Nastaviť rozvrh</button></div>' : '') +
     '<div style="margin-top:14px">' + monthNav() + '</div>' +
     '<div class="glass cal"><div class="cal-h">' + head + '</div><div class="cal-g">' + cells + '</div></div>' +
-    '<div class="legend"><span><i class="sw R"></i>Ranná ' + SHIFTS.R.f + '–' + SHIFTS.R.t + '</span><span><i class="sw P"></i>Poobedná ' + SHIFTS.P.f + '–' + SHIFTS.P.t + '</span>' +
-    '<span><i class="sw N"></i>Nočná ' + SHIFTS.N.f + '–' + SHIFTS.N.t + '</span><span><i style="background:var(--danger)"></i>Sviatok</span></div>' +
+    (isBr
+      ? '<div class="legend"><span><i class="sw R"></i>Ranná</span><span><i class="sw P"></i>Poobedná</span><span><i class="sw N"></i>Nočná</span>' + (hasSched ? '<span><i class="sw O"></i>Voľno</span>' : '') + '<span><i style="background:var(--danger)"></i>Sviatok</span></div>'
+      : '<div class="legend"><span><i class="sw R"></i>Ranná ' + SHIFTS.R.f + '–' + SHIFTS.R.t + '</span><span><i class="sw P"></i>Poobedná ' + SHIFTS.P.f + '–' + SHIFTS.P.t + '</span>' +
+        '<span><i class="sw N"></i>Nočná ' + SHIFTS.N.f + '–' + SHIFTS.N.t + '</span><span><i style="background:var(--danger)"></i>Sviatok</span></div>') +
     '<div class="legend my"><span><i class="pdot t-smena"></i>Idem do práce</span><span><i class="pdot t-dov"></i>Dovolenka</span><span><i class="pdot t-pn"></i>PN</span><span><i class="pdot t-lekar"></i>Lekár</span><span><i class="pdot t-ine"></i>Iné</span></div>' +
     '<div class="dhead"><h2>' + WDL[sel.getDay()] + ' ' + sel.getDate() + '. ' + (sel.getMonth() + 1) + '.</h2>' +
     (hol2 ? '<span class="chip">Sviatok · ' + esc(hol2) + '</span>' : '') + '</div>' +
@@ -1394,8 +1521,8 @@ function viewSchedule(){
     '<div class="dhead"><h2 style="font-size:19px">Moje záznamy</h2></div>' +
     '<div class="glass group">' + (plansOnDay(allPlans, sel).length ? plansOnDay(allPlans, sel).map(function(p){ return planRowHTML(p, R, isBr); }).join('') : '<div class="row"><span>Zatiaľ nič</span><span class="v">–</span></div>') + '</div>' +
     '<button class="btn" data-act="planAdd" style="margin-top:12px">' + icon('plus') + 'Pridať do dňa</button>' +
-    '<p class="note">Ukážkový rozvrh. V skutočnej verzii ho dodá zamestnávateľ. Príplatky sú podľa pravidiel profilu ' + esc(prof.name) + '.</p>' +
-    '</main>' + (S.planSheet ? planSheetHTML() : '');
+    '<p class="note">' + (isBr ? 'Rozvrh si nastavuješ sám. ' : 'Ukážkový rozvrh. V skutočnej verzii ho dodá zamestnávateľ. ') + 'Príplatky sú podľa pravidiel profilu ' + esc(prof.name) + '.</p>' +
+    '</main>' + (S.planSheet ? planSheetHTML() : '') + (S.weekSheet ? weekSheetHTML() : '');
 }
 
 function viewRules(){
@@ -1408,6 +1535,10 @@ function viewRules(){
     var extra = '';
     if (g[0] === 'Víkend a sviatky'){
       extra = '<label class="row"><span>Deň smeny určuje príchod</span><select id="f-dayByArrival"><option value="0"' + (R.dayByArrival ? '' : ' selected') + '>Nie, podľa hodiny</option><option value="1"' + (R.dayByArrival ? ' selected' : '') + '>Áno</option></select></label>';
+    }
+    if (g[0] === 'Mzda'){
+      extra = '<div style="padding:12px 14px;display:grid;gap:8px"><button class="btn soft" type="button" data-act="minWage2026">Nastaviť podľa minimálnej mzdy 2026</button>' +
+        '<p class="muted" style="margin:0;font-size:13px">Minimálna mzda v roku 2026 je ' + MINW.mes + ' € mesačne a ' + String(MINW.hod).replace('.', ',') + ' € za hodinu. Tlačidlo vyplní sadzbu a zákonné minimálne príplatky (noc, sobota, nedeľa, sviatok 100 %, nadčas 25 %). Potom ešte stlač Uložiť.</p></div>';
     }
     if (g[0] === 'Nadčas'){
       extra = '<label class="row"><span>Aj cez víkend</span><select id="f-nadcasVikend"><option value="0"' + (R.nadcasVikend ? '' : ' selected') + '>Nie</option><option value="1"' + (R.nadcasVikend ? ' selected' : '') + '>Áno</option></select></label>';
@@ -2085,7 +2216,7 @@ function pinComplete(){
 }
 
 /* ---------- jazyk SK / EN ---------- */
-var EN = {"(ukážkový kontakt)": "(sample contact)", "Aj cez víkend": "Weekends too", "Ak smena končí po polnoci, zadaj čas do ďalšieho dňa, napríklad 22:00 až 06:00.": "If the shift ends after midnight, enter the end time on the next day, for example 22:00 to 06:00.", "Appka": "App", "Bez príplatkov": "No surcharges", "bez príplatku": "no surcharge", "Brigádnik": "Temp worker", "brigádnik": "temp worker", "Brigádnik vidí odpracované hodiny a mzdu, zamestnanec hodiny voči mesačnému fondu. Prihlásenie sa uloží, nabudúce sa otvorí rovno tvoj účet.": "A temp worker sees hours worked and pay; an employee sees hours against the monthly quota. Your login is saved, so next time your account opens right away.", "Daň (19 %)": "Tax (19 %)", "Daň": "Tax", "deň": "day", "Deň smeny určuje príchod": "Shift day is set by arrival", "Dnes": "Today", "Zajtra": "Tomorrow", "Do": "To", "Do (hodina)": "To (hour)", "Do (nepovinné)": "To (optional)", "Dochádzka": "Attendance", "Dovolenka": "Vacation", "Dátum": "Date", "Dĺžka (min, 0 = žiadna)": "Length (min, 0 = none)", "Farba firmy": "Company colour", "Firma": "Company", "Fond hodín": "Hours quota", "Graf hodín": "Hours chart", "Graf odpracovaných hodín": "Worked hours chart", "Graf odpracovaných hodín po dňoch": "Chart of worked hours by day", "hod.": "hrs", "Hodinová sadzba (€)": "Hourly rate (€)", "Hodiny": "Hours", "Hodnoty prepíš podľa zmluvy a výplatnej pásky. Predvolené sú len orientačné.": "Edit the values to match your contract and payslip. The defaults are only a guide.", "Hrubá mzda": "Gross pay", "Hrubá mzda (odhad z hodín)": "Gross pay (estimated from hours)", "Hrubá mzda (€)": "Gross pay (€)", "Idem do práce": "Going to work", "Import záznamov": "Import records", "Importovať záznamy": "Import records", "Invalidné poistenie (3 %)": "Disability insurance (3 %)", "Iné": "Other", "Kalendár": "Calendar", "Kde nájdem kód": "Where do I find my code", "Kde nájdem kód?": "Where do I find my code?", "Kedy a koľko si pracoval": "When and how much you worked", "Kód má 12 znakov. Dopíš zvyšok.": "The code has 12 characters. Enter the rest.", "Kód od zamestnávateľa": "Code from your employer", "Kód ti dá tvoj zamestnávateľ, zvyčajne personalistka alebo vedúci. Dostaneš ho e-mailom, SMS-kou alebo na vytlačenom papieri s QR kódom.": "Your employer gives you the code, usually HR or your manager. You get it by e-mail, SMS or on a printed sheet with a QR code.", "Kód prijatý ✓": "Code accepted ✓", "Lekár": "Doctor", "Logo nahraj len so súhlasom firmy. Bez neho ostane farba a značka.": "Upload the logo only with the company's permission. Without it, the colour and badge are used.", "Mimo práce": "Off duty", "V práci": "At work", "Moje záznamy": "My entries", "Mzda": "Pay", "Má 12 znakov (písmená a číslice), napríklad XXXX-XXXX-XXXX. Na veľkosti písmen nezáleží a pomlčky písať netreba. Celý kód môžeš aj vložiť naraz.": "It has 12 characters (letters and digits), for example XXXX-XXXX-XXXX. Upper or lower case does not matter and you do not need to type the dashes. You can also paste the whole code at once.", "Na štvrťhodinu nadol": "Down to the quarter hour", "Nadčas": "Overtime", "Nadčas po": "Overtime after", "Namiesto PIN-u sa budeš môcť odomykať tvárou alebo odtlačkom prsta. PIN ti ostane ako záloha.": "Instead of the PIN you will be able to unlock with your face or fingerprint. The PIN stays as a backup.", "napr. 1200": "e.g. 1200", "napr. 82,5": "e.g. 82.5", "Napíš hrubú mzdu a hneď uvidíš, koľko to je v čistom (počíta sa ako brigádnik).": "Type a gross amount and see right away what it is net (calculated as a temp worker).", "Napíš hrubú mzdu a hneď uvidíš, koľko to je v čistom (počíta sa ako zamestnanec).": "Type a gross amount and see right away what it is net (calculated as an employee).", "Nasledujúci mesiac": "Next month", "Predchádzajúci mesiac": "Previous month", "Nastav si PIN": "Set your PIN", "Navigácia": "Navigation", "Načítať najnovšiu verziu": "Load the latest version", "Nemocenské poistenie (1,4 %)": "Sickness insurance (1.4 %)", "Nemáš ho, alebo nefunguje?": "Don't have it, or it doesn't work?", "Nie": "No", "Nie, podľa hodiny": "No, by the hour", "Noc": "Night", "Nočná": "Night", "Ranná": "Morning", "Poobedná": "Afternoon", "Názov": "Name", "Názov firmy": "Company name", "Obnoviť": "Refresh", "Obnoviť predvolené hodnoty": "Restore defaults", "Od": "From", "Od (hodina)": "From (hour)", "Od (nepovinné)": "From (optional)", "Od – do": "From – to", "Príchod": "Clock in", "Odchod": "Clock out", "Odhad mzdy": "Estimated pay", "Odhlásiť": "Log out", "Odpracované": "Worked", "Odstrániť logo": "Remove logo", "Odvody": "Contributions", "Odvody spolu": "Total contributions", "Odvody zamestnanca sú 14,4 % (sociálne 9,4 % a zdravotné 5 %), daň je 19 % po odpočítaní nezdaniteľnej časti 497,23 €. Daňový bonus na deti sa nezapočítava. Orientačný výpočet, záväzná je výplatná páska.": "Employee contributions are 14.4 % (social 9.4 % and health 5 %); tax is 19 % after deducting the tax-free allowance of €497.23. The child tax bonus is not included. This is an estimate; the payslip is binding.", "Prvých 200 € mesačne sa neodvádza. Odvody sú 7 % (3 % invalidné a 4 % starobné), daň je 19 % po odpočítaní nezdaniteľnej časti 497,23 €. Orientačný výpočet, záväzná je výplatná páska.": "The first €200 per month is exempt from contributions. Contributions are 7 % (3 % disability and 4 % old-age); tax is 19 % after deducting the tax-free allowance of €497.23. This is an estimate; the payslip is binding.", "Ozvi sa personalistke alebo napíš na podpora@priklad.sk": "Contact HR or write to podpora@priklad.sk", "PDF je pripravené.": "The PDF is ready.", "PDF sa nepodarilo uložiť.": "The PDF could not be saved.", "Pripravujem PDF…": "Preparing the PDF…", "Uloženie súboru nie je v tomto zobrazení dostupné.": "Saving files is not available in this view.", "PIN sa nezhoduje. Skús znova.": "The PINs do not match. Try again.", "Platený čas": "Paid time", "Platí od dĺžky smeny (min)": "Applies from shift length (min)", "PN": "Sick leave", "Po zadaní kódu si nastavíš nový PIN.": "After entering the code you will set a new PIN.", "Poistenie v nezamestnanosti (1 %)": "Unemployment insurance (1 %)", "Pokračovať": "Continue", "Posúvaj do strán. Os X: dni v mesiaci, pod dňom sú odpracované hodiny. Os Y: hodina dňa.": "Scroll sideways. X axis: days of the month; worked hours are shown under each day. Y axis: hour of the day.", "Potvrď zmazanie": "Confirm deletion", "Potvrď zmazanie všetkých záznamov": "Confirm deleting all records", "Povoliť Face ID": "Enable Face ID", "Povoliť Face ID?": "Enable Face ID?", "Poznámka (nepovinné)": "Note (optional)", "Pracovné číslo": "Work number", "Pravidlá a vzhľad": "Rules and appearance", "Prepočet hrubej na čistú": "Gross to net calculator", "Prestávka": "Break", "Prestávka 1": "Break 1", "Prestávka 2": "Break 2", "Pri jednom dni nechaj „Do\" prázdne.": "For a single day, leave \"To\" empty.", "Pridať": "Add", "Pridať do dňa": "Add to this day", "Pridať do kalendára": "Add to calendar", "Pridať záznam": "Add record", "Priemer na smenu": "Average per shift", "Prihlásenie": "Log in", "Prihlásiť sa": "Log in", "Profil": "Profile", "Príplatky v tento deň": "Surcharges for this day", "Príplatok (%)": "Surcharge (%)", "Príplatok (€ za hodinu)": "Surcharge (€ per hour)", "Príplatok za nedeľu (€/h)": "Sunday surcharge (€/h)", "Príplatok za sobotu (€/h)": "Saturday surcharge (€/h)", "Páska": "Payslip", "Rozdiel": "Difference", "Rozdiel voči fondu": "Difference vs. quota", "Rozpis z hrubej do čistej mzdy": "Gross to net breakdown", "Rozvrh smeny": "Shift schedule", "Skenovanie sa nepodarilo načítať. Zadaj kód ručne.": "Scanning could not be loaded. Enter the code manually.", "Skenovať QR kód": "Scan QR code", "Skontroluj zadané hodnoty.": "Check the values you entered.", "Skopírovať záznamy": "Copy records", "Smena": "Shift", "Smeny": "Shifts", "Späť": "Back", "Spôsob": "Method", "Starobné poistenie (4 %)": "Old-age insurance (4 %)", "Sviatok": "Public holiday", "Sviatok: navyše (€ za hodinu)": "Holiday: extra (€ per hour)", "Sviatok: príplatok (% zo sadzby a víkendu)": "Holiday: surcharge (% of rate and weekend)", "Teraz nie": "Not now", "Text sa nepodarilo prečítať ako JSON.": "The text could not be read as JSON.", "Typ": "Type", "Typ pracovného pomeru": "Employment type", "Ukážka: PIN je uložený len v tomto zariadení.": "Demo: the PIN is stored only on this device.", "Uložené.": "Saved.", "Uložiť": "Save", "Uložiť a porovnať": "Save and compare", "Upraviť záznam": "Edit record", "V čistom": "Net pay", "V čistom (odhad)": "Net pay (estimate)", "V čistom, appka": "Net, app", "V čistom, páska": "Net, payslip", "Vlož záznamy (dátum, od, do)": "Paste records (date, from, to)", "Voľno": "Day off", "Vybrať logo": "Choose logo", "Vzhľad": "Appearance", "Víkend a sviatky": "Weekends and holidays", "Výkaz do PDF": "Export PDF report", "Výplatná páska": "Payslip", "Z hrubej do čistej": "From gross to net", "Zabudol som PIN": "I forgot my PIN", "Zadaj názov.": "Enter a name.", "Zadaj názov firmy.": "Enter a company name.", "Zadaj PIN": "Enter PIN", "Zadaj pracovné číslo.": "Enter your work number.", "Zadaj sumu v eurách.": "Enter an amount in euros.", "Zadaj svoj kód": "Enter your code", "Zadaj ten istý PIN ešte raz.": "Enter the same PIN once more.", "Zadanie kódu": "Code entry", "Zamestnanec": "Employee", "Zaokrúhľovanie príchodu": "Rounding of arrival time", "Zatiaľ nič": "Nothing yet", "Zavrieť": "Close", "Začína po (hodinách od príchodu)": "Starts after (hours from arrival)", "Začína po (hodinách)": "Starts after (hours)", "Zdravotné poistenie (5 %)": "Health insurance (5 %)", "Zmazať": "Delete", "Zmazať profil": "Delete profile", "Zmazať všetky záznamy tohto účtu": "Delete all records of this account", "Zmazať záznam": "Delete record", "Zmazať číslicu": "Delete digit", "Značka (1–2 znaky)": "Badge (1–2 characters)", "Zopakuj PIN": "Repeat PIN", "Zrušiť": "Cancel", "Zvoľ si 4 číslice. Budeš ho zadávať pri otvorení aplikácie.": "Choose 4 digits. You will enter it when you open the app.", "Základ dane": "Tax base", "Záloha a aktualizácia": "Backup and update", "Záznamy": "Records", "Záznamy sú v poli vyššie, skopíruj ich ručne.": "The records are in the field above; copy them manually.", "Záznamy sú skopírované.": "Records copied.", "Záznam bol zmazaný.": "Record deleted.", "Záznamy boli zmazané.": "Records deleted.", "Zatiaľ nemáš dokončené záznamy.": "You have no completed records yet.", "Za tento mesiac nie sú dokončené záznamy.": "There are no completed records for this month.", "Áno": "Yes", "Údaje ostávajú len v tomto zariadení.": "Your data stays only on this device.", "Čas (nepovinné)": "Time (optional)", "Čistá mzda z pásky (€), nepovinné": "Net pay from the payslip (€), optional", "Číselník": "Keypad", "Čísla sa líšia. Skontroluj záznamy, prestávky a príplatky.": "The figures differ. Check the records, breaks and surcharges.", "Sedí v rámci tolerancie (15 minút, 1 €).": "Within tolerance (15 minutes, €1).", "Ťukni na stĺpec a uvidíš detail dňa. Smena cez polnoc sa zobrazí na oboch dňoch.": "Tap a bar to see the details of that day. A shift past midnight is shown on both days.", "Žiadne": "None", "Po": "Mo", "Ut": "Tu", "St": "We", "Št": "Th", "Pi": "Fr", "So": "Sa", "Ne": "Su", "Víta vás": "Welcome to", "Zatiaľ bez naplánovaných smien": "No scheduled shifts yet", "V tomto mesiaci zatiaľ nie sú žiadne záznamy.": "There are no records this month yet.", "V tomto mesiaci zatiaľ nie sú záznamy": "No records this month yet", "Odchod musí byť neskôr než príchod.": "Clock-out must be later than clock-in.", "Vyplň príchod aj odchod.": "Fill in both clock-in and clock-out.", "Vyber dátum.": "Choose a date.", "Zadaj čas od aj do.": "Enter both a start and an end time.", "Dátum „Do\" je pred dátumom „Od\".": "The \"To\" date is before the \"From\" date.", "Je dostupná nová verzia.": "A new version is available.", "Spúšťam fotoaparát…": "Starting the camera…", "Namier fotoaparát na QR kód.": "Point the camera at a QR code.", "Fotoaparát nie je v tomto prehliadači dostupný. Zadaj kód ručne.": "The camera is not available in this browser. Enter the code manually.", "Prístup k fotoaparátu nebol povolený. Zadaj kód ručne.": "Camera access was not allowed. Enter the code manually.", "V tomto QR kóde som nenašiel kód. Skús iný.": "I couldn't find a code in this QR code. Try another.", "Face ID sa nepodarilo. Zadaj PIN.": "Face ID failed. Enter your PIN.", "Face ID sa nepodarilo zapnúť. Skús to neskôr alebo pokračuj s PIN-om.": "Face ID could not be enabled. Try later or continue with the PIN.", "Príliš veľa pokusov. Zadaj kód znova.": "Too many attempts. Enter the code again.", "Odomknúť Face ID alebo odtlačkom": "Unlock with Face ID or fingerprint", "Nová firma": "New company", "Nový profil": "New profile", "Spolu": "Total", "Strana": "Page", "Odpracované dni": "Days worked", "Najdlhšia": "Longest", "Deň vzniku Slovenskej republiky": "Day of the Establishment of the Slovak Republic", "Zjavenie Pána (Traja králi)": "Epiphany (Three Kings)", "Sviatok práce": "Labour Day", "Deň víťazstva nad fašizmom": "Victory over Fascism Day", "Sviatok svätého Cyrila a Metoda": "Saints Cyril and Methodius Day", "Výročie SNP": "Slovak National Uprising Anniversary", "Deň Ústavy Slovenskej republiky": "Constitution Day of the Slovak Republic", "Sedembolestná Panna Mária": "Our Lady of Sorrows", "Sviatok všetkých svätých": "All Saints' Day", "Deň boja za slobodu a demokraciu": "Struggle for Freedom and Democracy Day", "Štedrý deň": "Christmas Eve", "Prvý sviatok vianočný": "Christmas Day", "Druhý sviatok vianočný": "Boxing Day", "Veľký piatok": "Good Friday", "Veľkonočný pondelok": "Easter Monday"};
+var EN = {"voľno": "off", "Voľno": "Off", "Pracujem": "Working", "Každý týždeň": "Every week", "Každý druhý týždeň": "Every other week", "Opakovanie": "Repeat", "Prvý pracovný týždeň": "First working week", "Tento týždeň": "This week", "Budúci týždeň": "Next week", "Môj rozvrh": "My schedule", "Nastaviť rozvrh": "Set schedule", "Moja smena": "My shift", "Pracujem": "Working", "Pondelok skopírovať na Po–Pi": "Copy Monday to Mon–Fri", "Rozvrh uložený.": "Schedule saved.", "Zatiaľ nemáš nastavený rozvrh.": "You have not set a schedule yet.", "Nastaviť podľa minimálnej mzdy 2026": "Set to the 2026 minimum wage", "Nastavené podľa minimálnej mzdy 2026. Nezabudni uložiť.": "Set to the 2026 minimum wage. Remember to save.", "(ukážkový kontakt)": "(sample contact)", "Aj cez víkend": "Weekends too", "Ak smena končí po polnoci, zadaj čas do ďalšieho dňa, napríklad 22:00 až 06:00.": "If the shift ends after midnight, enter the end time on the next day, for example 22:00 to 06:00.", "Appka": "App", "Bez príplatkov": "No surcharges", "bez príplatku": "no surcharge", "Brigádnik": "Temp worker", "brigádnik": "temp worker", "Brigádnik vidí odpracované hodiny a mzdu, zamestnanec hodiny voči mesačnému fondu. Prihlásenie sa uloží, nabudúce sa otvorí rovno tvoj účet.": "A temp worker sees hours worked and pay; an employee sees hours against the monthly quota. Your login is saved, so next time your account opens right away.", "Daň (19 %)": "Tax (19 %)", "Daň": "Tax", "deň": "day", "Deň smeny určuje príchod": "Shift day is set by arrival", "Dnes": "Today", "Zajtra": "Tomorrow", "Do": "To", "Do (hodina)": "To (hour)", "Do (nepovinné)": "To (optional)", "Dochádzka": "Attendance", "Dovolenka": "Vacation", "Dátum": "Date", "Dĺžka (min, 0 = žiadna)": "Length (min, 0 = none)", "Farba firmy": "Company colour", "Firma": "Company", "Fond hodín": "Hours quota", "Graf hodín": "Hours chart", "Graf odpracovaných hodín": "Worked hours chart", "Graf odpracovaných hodín po dňoch": "Chart of worked hours by day", "hod.": "hrs", "Hodinová sadzba (€)": "Hourly rate (€)", "Hodiny": "Hours", "Hodnoty prepíš podľa zmluvy a výplatnej pásky. Predvolené sú len orientačné.": "Edit the values to match your contract and payslip. The defaults are only a guide.", "Hrubá mzda": "Gross pay", "Hrubá mzda (odhad z hodín)": "Gross pay (estimated from hours)", "Hrubá mzda (€)": "Gross pay (€)", "Idem do práce": "Going to work", "Import záznamov": "Import records", "Importovať záznamy": "Import records", "Invalidné poistenie (3 %)": "Disability insurance (3 %)", "Iné": "Other", "Kalendár": "Calendar", "Kde nájdem kód": "Where do I find my code", "Kde nájdem kód?": "Where do I find my code?", "Kedy a koľko si pracoval": "When and how much you worked", "Kód má 12 znakov. Dopíš zvyšok.": "The code has 12 characters. Enter the rest.", "Kód od zamestnávateľa": "Code from your employer", "Kód ti dá tvoj zamestnávateľ, zvyčajne personalistka alebo vedúci. Dostaneš ho e-mailom, SMS-kou alebo na vytlačenom papieri s QR kódom.": "Your employer gives you the code, usually HR or your manager. You get it by e-mail, SMS or on a printed sheet with a QR code.", "Kód prijatý ✓": "Code accepted ✓", "Lekár": "Doctor", "Logo nahraj len so súhlasom firmy. Bez neho ostane farba a značka.": "Upload the logo only with the company's permission. Without it, the colour and badge are used.", "Mimo práce": "Off duty", "V práci": "At work", "Moje záznamy": "My entries", "Mzda": "Pay", "Má 12 znakov (písmená a číslice), napríklad XXXX-XXXX-XXXX. Na veľkosti písmen nezáleží a pomlčky písať netreba. Celý kód môžeš aj vložiť naraz.": "It has 12 characters (letters and digits), for example XXXX-XXXX-XXXX. Upper or lower case does not matter and you do not need to type the dashes. You can also paste the whole code at once.", "Na štvrťhodinu nadol": "Down to the quarter hour", "Nadčas": "Overtime", "Nadčas po": "Overtime after", "Namiesto PIN-u sa budeš môcť odomykať tvárou alebo odtlačkom prsta. PIN ti ostane ako záloha.": "Instead of the PIN you will be able to unlock with your face or fingerprint. The PIN stays as a backup.", "napr. 1200": "e.g. 1200", "napr. 82,5": "e.g. 82.5", "Napíš hrubú mzdu a hneď uvidíš, koľko to je v čistom (počíta sa ako brigádnik).": "Type a gross amount and see right away what it is net (calculated as a temp worker).", "Napíš hrubú mzdu a hneď uvidíš, koľko to je v čistom (počíta sa ako zamestnanec).": "Type a gross amount and see right away what it is net (calculated as an employee).", "Nasledujúci mesiac": "Next month", "Predchádzajúci mesiac": "Previous month", "Nastav si PIN": "Set your PIN", "Navigácia": "Navigation", "Načítať najnovšiu verziu": "Load the latest version", "Nemocenské poistenie (1,4 %)": "Sickness insurance (1.4 %)", "Nemáš ho, alebo nefunguje?": "Don't have it, or it doesn't work?", "Nie": "No", "Nie, podľa hodiny": "No, by the hour", "Noc": "Night", "Nočná": "Night", "Ranná": "Morning", "Poobedná": "Afternoon", "Názov": "Name", "Názov firmy": "Company name", "Obnoviť": "Refresh", "Obnoviť predvolené hodnoty": "Restore defaults", "Od": "From", "Od (hodina)": "From (hour)", "Od (nepovinné)": "From (optional)", "Od – do": "From – to", "Príchod": "Clock in", "Odchod": "Clock out", "Odhad mzdy": "Estimated pay", "Odhlásiť": "Log out", "Odpracované": "Worked", "Odstrániť logo": "Remove logo", "Odvody": "Contributions", "Odvody spolu": "Total contributions", "Odvody zamestnanca sú 14,4 % (sociálne 9,4 % a zdravotné 5 %), daň je 19 % po odpočítaní nezdaniteľnej časti 497,23 €. Daňový bonus na deti sa nezapočítava. Orientačný výpočet, záväzná je výplatná páska.": "Employee contributions are 14.4 % (social 9.4 % and health 5 %); tax is 19 % after deducting the tax-free allowance of €497.23. The child tax bonus is not included. This is an estimate; the payslip is binding.", "Prvých 200 € mesačne sa neodvádza. Odvody sú 7 % (3 % invalidné a 4 % starobné), daň je 19 % po odpočítaní nezdaniteľnej časti 497,23 €. Orientačný výpočet, záväzná je výplatná páska.": "The first €200 per month is exempt from contributions. Contributions are 7 % (3 % disability and 4 % old-age); tax is 19 % after deducting the tax-free allowance of €497.23. This is an estimate; the payslip is binding.", "Ozvi sa personalistke alebo napíš na podpora@priklad.sk": "Contact HR or write to podpora@priklad.sk", "PDF je pripravené.": "The PDF is ready.", "PDF sa nepodarilo uložiť.": "The PDF could not be saved.", "Pripravujem PDF…": "Preparing the PDF…", "Uloženie súboru nie je v tomto zobrazení dostupné.": "Saving files is not available in this view.", "PIN sa nezhoduje. Skús znova.": "The PINs do not match. Try again.", "Platený čas": "Paid time", "Platí od dĺžky smeny (min)": "Applies from shift length (min)", "PN": "Sick leave", "Po zadaní kódu si nastavíš nový PIN.": "After entering the code you will set a new PIN.", "Poistenie v nezamestnanosti (1 %)": "Unemployment insurance (1 %)", "Pokračovať": "Continue", "Posúvaj do strán. Os X: dni v mesiaci, pod dňom sú odpracované hodiny. Os Y: hodina dňa.": "Scroll sideways. X axis: days of the month; worked hours are shown under each day. Y axis: hour of the day.", "Potvrď zmazanie": "Confirm deletion", "Potvrď zmazanie všetkých záznamov": "Confirm deleting all records", "Povoliť Face ID": "Enable Face ID", "Povoliť Face ID?": "Enable Face ID?", "Poznámka (nepovinné)": "Note (optional)", "Pracovné číslo": "Work number", "Pravidlá a vzhľad": "Rules and appearance", "Prepočet hrubej na čistú": "Gross to net calculator", "Prestávka": "Break", "Prestávka 1": "Break 1", "Prestávka 2": "Break 2", "Pri jednom dni nechaj „Do\" prázdne.": "For a single day, leave \"To\" empty.", "Pridať": "Add", "Pridať do dňa": "Add to this day", "Pridať do kalendára": "Add to calendar", "Pridať záznam": "Add record", "Priemer na smenu": "Average per shift", "Prihlásenie": "Log in", "Prihlásiť sa": "Log in", "Profil": "Profile", "Príplatky v tento deň": "Surcharges for this day", "Príplatok (%)": "Surcharge (%)", "Príplatok (€ za hodinu)": "Surcharge (€ per hour)", "Príplatok za nedeľu (€/h)": "Sunday surcharge (€/h)", "Príplatok za sobotu (€/h)": "Saturday surcharge (€/h)", "Páska": "Payslip", "Rozdiel": "Difference", "Rozdiel voči fondu": "Difference vs. quota", "Rozpis z hrubej do čistej mzdy": "Gross to net breakdown", "Rozvrh smeny": "Shift schedule", "Skenovanie sa nepodarilo načítať. Zadaj kód ručne.": "Scanning could not be loaded. Enter the code manually.", "Skenovať QR kód": "Scan QR code", "Skontroluj zadané hodnoty.": "Check the values you entered.", "Skopírovať záznamy": "Copy records", "Smena": "Shift", "Smeny": "Shifts", "Späť": "Back", "Spôsob": "Method", "Starobné poistenie (4 %)": "Old-age insurance (4 %)", "Sviatok": "Public holiday", "Sviatok: navyše (€ za hodinu)": "Holiday: extra (€ per hour)", "Sviatok: príplatok (% zo sadzby a víkendu)": "Holiday: surcharge (% of rate and weekend)", "Teraz nie": "Not now", "Text sa nepodarilo prečítať ako JSON.": "The text could not be read as JSON.", "Typ": "Type", "Typ pracovného pomeru": "Employment type", "Ukážka: PIN je uložený len v tomto zariadení.": "Demo: the PIN is stored only on this device.", "Uložené.": "Saved.", "Uložiť": "Save", "Uložiť a porovnať": "Save and compare", "Upraviť záznam": "Edit record", "V čistom": "Net pay", "V čistom (odhad)": "Net pay (estimate)", "V čistom, appka": "Net, app", "V čistom, páska": "Net, payslip", "Vlož záznamy (dátum, od, do)": "Paste records (date, from, to)", "Voľno": "Day off", "Vybrať logo": "Choose logo", "Vzhľad": "Appearance", "Víkend a sviatky": "Weekends and holidays", "Výkaz do PDF": "Export PDF report", "Výplatná páska": "Payslip", "Z hrubej do čistej": "From gross to net", "Zabudol som PIN": "I forgot my PIN", "Zadaj názov.": "Enter a name.", "Zadaj názov firmy.": "Enter a company name.", "Zadaj PIN": "Enter PIN", "Zadaj pracovné číslo.": "Enter your work number.", "Zadaj sumu v eurách.": "Enter an amount in euros.", "Zadaj svoj kód": "Enter your code", "Zadaj ten istý PIN ešte raz.": "Enter the same PIN once more.", "Zadanie kódu": "Code entry", "Zamestnanec": "Employee", "Zaokrúhľovanie príchodu": "Rounding of arrival time", "Zatiaľ nič": "Nothing yet", "Zavrieť": "Close", "Začína po (hodinách od príchodu)": "Starts after (hours from arrival)", "Začína po (hodinách)": "Starts after (hours)", "Zdravotné poistenie (5 %)": "Health insurance (5 %)", "Zmazať": "Delete", "Zmazať profil": "Delete profile", "Zmazať všetky záznamy tohto účtu": "Delete all records of this account", "Zmazať záznam": "Delete record", "Zmazať číslicu": "Delete digit", "Značka (1–2 znaky)": "Badge (1–2 characters)", "Zopakuj PIN": "Repeat PIN", "Zrušiť": "Cancel", "Zvoľ si 4 číslice. Budeš ho zadávať pri otvorení aplikácie.": "Choose 4 digits. You will enter it when you open the app.", "Základ dane": "Tax base", "Záloha a aktualizácia": "Backup and update", "Záznamy": "Records", "Záznamy sú v poli vyššie, skopíruj ich ručne.": "The records are in the field above; copy them manually.", "Záznamy sú skopírované.": "Records copied.", "Záznam bol zmazaný.": "Record deleted.", "Záznamy boli zmazané.": "Records deleted.", "Zatiaľ nemáš dokončené záznamy.": "You have no completed records yet.", "Za tento mesiac nie sú dokončené záznamy.": "There are no completed records for this month.", "Áno": "Yes", "Údaje ostávajú len v tomto zariadení.": "Your data stays only on this device.", "Čas (nepovinné)": "Time (optional)", "Čistá mzda z pásky (€), nepovinné": "Net pay from the payslip (€), optional", "Číselník": "Keypad", "Čísla sa líšia. Skontroluj záznamy, prestávky a príplatky.": "The figures differ. Check the records, breaks and surcharges.", "Sedí v rámci tolerancie (15 minút, 1 €).": "Within tolerance (15 minutes, €1).", "Ťukni na stĺpec a uvidíš detail dňa. Smena cez polnoc sa zobrazí na oboch dňoch.": "Tap a bar to see the details of that day. A shift past midnight is shown on both days.", "Žiadne": "None", "Po": "Mo", "Ut": "Tu", "St": "We", "Št": "Th", "Pi": "Fr", "So": "Sa", "Ne": "Su", "Víta vás": "Welcome to", "Zatiaľ bez naplánovaných smien": "No scheduled shifts yet", "V tomto mesiaci zatiaľ nie sú žiadne záznamy.": "There are no records this month yet.", "V tomto mesiaci zatiaľ nie sú záznamy": "No records this month yet", "Odchod musí byť neskôr než príchod.": "Clock-out must be later than clock-in.", "Vyplň príchod aj odchod.": "Fill in both clock-in and clock-out.", "Vyber dátum.": "Choose a date.", "Zadaj čas od aj do.": "Enter both a start and an end time.", "Dátum „Do\" je pred dátumom „Od\".": "The \"To\" date is before the \"From\" date.", "Je dostupná nová verzia.": "A new version is available.", "Spúšťam fotoaparát…": "Starting the camera…", "Namier fotoaparát na QR kód.": "Point the camera at a QR code.", "Fotoaparát nie je v tomto prehliadači dostupný. Zadaj kód ručne.": "The camera is not available in this browser. Enter the code manually.", "Prístup k fotoaparátu nebol povolený. Zadaj kód ručne.": "Camera access was not allowed. Enter the code manually.", "V tomto QR kóde som nenašiel kód. Skús iný.": "I couldn't find a code in this QR code. Try another.", "Face ID sa nepodarilo. Zadaj PIN.": "Face ID failed. Enter your PIN.", "Face ID sa nepodarilo zapnúť. Skús to neskôr alebo pokračuj s PIN-om.": "Face ID could not be enabled. Try later or continue with the PIN.", "Príliš veľa pokusov. Zadaj kód znova.": "Too many attempts. Enter the code again.", "Odomknúť Face ID alebo odtlačkom": "Unlock with Face ID or fingerprint", "Nová firma": "New company", "Nový profil": "New profile", "Spolu": "Total", "Strana": "Page", "Odpracované dni": "Days worked", "Najdlhšia": "Longest", "Deň vzniku Slovenskej republiky": "Day of the Establishment of the Slovak Republic", "Zjavenie Pána (Traja králi)": "Epiphany (Three Kings)", "Sviatok práce": "Labour Day", "Deň víťazstva nad fašizmom": "Victory over Fascism Day", "Sviatok svätého Cyrila a Metoda": "Saints Cyril and Methodius Day", "Výročie SNP": "Slovak National Uprising Anniversary", "Deň Ústavy Slovenskej republiky": "Constitution Day of the Slovak Republic", "Sedembolestná Panna Mária": "Our Lady of Sorrows", "Sviatok všetkých svätých": "All Saints' Day", "Deň boja za slobodu a demokraciu": "Struggle for Freedom and Democracy Day", "Štedrý deň": "Christmas Eve", "Prvý sviatok vianočný": "Christmas Day", "Druhý sviatok vianočný": "Boxing Day", "Veľký piatok": "Good Friday", "Veľkonočný pondelok": "Easter Monday"};
 var PDF_EN = {"Výkaz dochádzky": "Attendance report", "Pracovné číslo": "Work number", "Brigádnik": "Temp worker", "Zamestnanec": "Employee", "Dátum": "Date", "Príchod": "In", "Odchod": "Out", "Odpracované": "Worked", "Mzda": "Pay", "Spolu": "Total", "Orientačný výpočet. Hodiny sú po odpočítaní prestávok. Záväzná je evidencia zamestnávateľa.": "Estimate. Hours are after breaks are deducted. The employer's records are binding.", "Strana": "Page"};
 var SUBS = [[/\(\+1 deň\)/g, '(+1 day)'], [/\((\d+) dni\)/g, '($1 days)'], [/\((\d+) dní\)/g, '($1 days)']];
 var EN_RX = [
@@ -2580,7 +2711,7 @@ document.addEventListener('click', function(e){
   if (!el) return;
   var act = el.getAttribute('data-act');
   // klik na pozadie panela zavrie panel, klik vnútri nie
-  if ((act === 'sheetClose' || act === 'netClose' || act === 'planClose' || act === 'helpClose') && el.classList.contains('sheet-back') && e.target !== el) return;
+  if ((act === 'sheetClose' || act === 'netClose' || act === 'planClose' || act === 'weekClose' || act === 'helpClose') && el.classList.contains('sheet-back') && e.target !== el) return;
   if (act !== 'del') S.confirmDel = null;
   if (act !== 'wipe') S.confirmWipe = false;
   if (act === 'prev' || act === 'next'){ S.chartSel = null; S.chartScroll = null; }
@@ -2735,6 +2866,34 @@ document.addEventListener('click', function(e){
     S.month = new Date(d0.getFullYear(), d0.getMonth(), 1);
     S.selDay = d0;
     toast('Uložené.');
+  } else if (act === 'weekOpen'){
+    var wk0 = loadWeek() || defaultWeek();
+    S.weekSheet = { cycle: wk0.cycle, a: JSON.parse(JSON.stringify(wk0.a)), startNext: wk0.cycle === 2 && weekParity(new Date(), wk0.anchor) === 1 };
+    S.weekPanel = false; S.weekErr = '';
+  } else if (act === 'weekClose'){
+    S.weekSheet = null; S.weekPanel = false; S.weekErr = '';
+  } else if (act === 'weekRep'){
+    readWeekInto(); S.weekPanel = !S.weekPanel;
+  } else if (act === 'weekCycle'){
+    readWeekInto(); S.weekSheet.cycle = parseInt(el.getAttribute('data-c'), 10); S.weekErr = '';
+  } else if (act === 'weekCur'){
+    readWeekInto(); S.weekSheet.startNext = el.getAttribute('data-w') === 'next';
+  } else if (act === 'weekSave'){
+    readWeekInto();
+    var ws2 = S.weekSheet, badW = false;
+    ws2.a.forEach(function(e){ if (e.on && (!e.a || !e.b || e.a === e.b)) badW = true; });
+    if (badW){ S.weekErr = 'Pri zapnutých dňoch vyplň čas od a do (nesmú byť rovnaké).'; }
+    else {
+      var m0 = mondayOf(new Date());
+      var anchor = ymd(ws2.cycle === 2 && ws2.startNext ? new Date(m0.getFullYear(), m0.getMonth(), m0.getDate() + 7) : m0);
+      saveWeek({ cycle: ws2.cycle, anchor: anchor, a: ws2.a });
+      S.weekSheet = null; S.weekPanel = false; S.weekErr = ''; toast('Rozvrh uložený.');
+    }
+  } else if (act === 'minWage2026'){
+    var setv = function(id, v){ var fe = document.getElementById('f-' + id); if (fe) fe.value = String(v); };
+    setv('sadzba', MINW.hod); setv('pNoc', MINW.noc); setv('pSobota', MINW.sob); setv('pNedela', MINW.ned); setv('pSviatokPct', 100); setv('pNadcas', 25);
+    toast('Nastavené podľa minimálnej mzdy 2026. Nezabudni uložiť.');
+    return;
   } else if (act === 'schedule'){
     S.view = 'schedule'; S.selDay = new Date(); window.scrollTo(0, 0);
   } else if (act === 'net'){
